@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Portal\Layout;
+use App\Livewire\Portal\Home;
 
 Route::middleware([
     'auth:sanctum',
@@ -9,6 +9,6 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-    Route::get('/', Layout::class)->name('portal');
+    Route::get('/', Home::class);
 
 });
