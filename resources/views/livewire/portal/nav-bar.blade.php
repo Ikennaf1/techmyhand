@@ -42,6 +42,7 @@
                             </div>
                         </a>
                     </li>
+                    <a class="block p-0 transition-all ease-nav-brand text-sm text-slate-500 underline" href="http://">Visit Site</a>
                     {{-- <li class="flex items-center px-4">
                         <a href="javascript:;" class="p-0 transition-all text-sm ease-nav-brand text-slate-500">
                             <i fixed-plugin-button-nav class="cursor-pointer fa fa-cog"></i>

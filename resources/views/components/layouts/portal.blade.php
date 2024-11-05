@@ -14,13 +14,6 @@
             'resources/soft-ui-dashboard-tailwind/assets/css/nucleo-svg.css',
             'resources/soft-ui-dashboard-tailwind/assets/css/perfect-scrollbar.css',
             'resources/soft-ui-dashboard-tailwind/assets/js/plugins/perfect-scrollbar.min.js',
-            // 'resources/soft-ui-dashboard-tailwind/assets/js/dropdown.js',
-            // 'resources/soft-ui-dashboard-tailwind/assets/js/fixed-plugin.js',
-            // 'resources/soft-ui-dashboard-tailwind/assets/js/nav-pills.js',
-            // 'resources/soft-ui-dashboard-tailwind/assets/js/navbar-collapse.js',
-            // 'resources/soft-ui-dashboard-tailwind/assets/js/navbar-sticky.js',
-            // 'resources/soft-ui-dashboard-tailwind/assets/js/perfect-scrollbar.js',
-            // 'resources/soft-ui-dashboard-tailwind/assets/js/sidenav-burger.js',
             'resources/soft-ui-dashboard-tailwind/assets/js/soft-ui-dashboard-tailwind.js',
         ])
 
