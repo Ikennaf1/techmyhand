@@ -8,9 +8,9 @@
                 <li class="leading-normal text-sm">
                 <a class="opacity-50 text-slate-700" href="javascript:;">{{ $portalName }}</a>
                 </li>
-                <li class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']" aria-current="page">{{ $portalScriptName }}</li>
+                <li class="text-sm pl-2 leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']" aria-current="page">{{ $portalScriptName }}</li>
             </ol>
-            <h6 class="mb-0 font-bold capitalize">Portal</h6>
+            <h6 class="mb-0 font-bold capitalize">{{ str_replace('-', ' ', $portalScriptName) }}</h6>
             </nav>
 
             <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">

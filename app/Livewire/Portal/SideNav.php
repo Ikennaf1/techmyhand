@@ -8,6 +8,12 @@ class SideNav extends Component
 {
     public function render()
     {
-        return view('livewire.portal.side-nav');
+        $portalPath = request()->getRequestUri();
+        $portalName = explode('/', request()->getRequestUri());
+        $portalName = $portalName[count($portalName) - 1];
+
+        return view('livewire.portal.side-nav', [
+            'portalName' => $portalName
+        ]);
     }
 }

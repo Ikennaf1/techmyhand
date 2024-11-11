@@ -5,3 +5,20 @@
 [x-cloak] {
     display: none;
 }
+
+*, ::before, ::after {
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+}
+
+/* Dashboard styles */
+.shadow-soft-xl {
+    --tw-shadow: 0 20px 27px 0 rgba(0,0,0,0.05);
+    --tw-shadow-colored: 0 20px 27px 0 var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+a.side-nav-link {
+    @apply bg-white rounded-lg shadow-soft-xl font-semibold text-slate-700;
+}
