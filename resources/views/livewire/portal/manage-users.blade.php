@@ -31,7 +31,7 @@
                                             </div>
                                         </td>
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <p class="mb-0 text-xs font-semibold leading-tight">{{$adminUser->role}}</p>
+                                            <p class="mb-0 text-xxs font-bold leading-tight uppercase">{{$adminUser->role}}</p>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <span class="text-xs font-semibold leading-tight text-slate-400">{{$adminUser->started_on}}</span>
@@ -52,7 +52,7 @@
                 <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                     <div class="flex flex-row gap-8 justify-between">
                         <h6 class="mr-4">Users</h6>
-                        <p class="text-sm font-bold"><a href="#">See All Users</a></p>
+                        <p class="text-sm font-semibold"><a href="#">See All Users</a></p>
                     </div>
                 </div>
                 <div class="flex-auto px-0 pt-0 pb-2">
