@@ -6,15 +6,15 @@
 
         <!-- Scripts -->
         @vite([
-            'resources/css/app.css',
-            'resources/js/app.js',
+            '/resources/css/app.css',
+            '/resources/js/app.js',
             // Soft UI Dasboard scripts
-            'resources/soft-ui-dashboard-tailwind/assets/css/soft-ui-dashboard-tailwind.css',
-            'resources/soft-ui-dashboard-tailwind/assets/css/nucleo-icons.css',
-            'resources/soft-ui-dashboard-tailwind/assets/css/nucleo-svg.css',
-            'resources/soft-ui-dashboard-tailwind/assets/css/perfect-scrollbar.css',
-            'resources/soft-ui-dashboard-tailwind/assets/js/plugins/perfect-scrollbar.min.js',
-            'resources/soft-ui-dashboard-tailwind/assets/js/soft-ui-dashboard-tailwind.js',
+            '/resources/soft-ui-dashboard-tailwind/assets/css/soft-ui-dashboard-tailwind.css',
+            '/resources/soft-ui-dashboard-tailwind/assets/css/nucleo-icons.css',
+            '/resources/soft-ui-dashboard-tailwind/assets/css/nucleo-svg.css',
+            '/resources/soft-ui-dashboard-tailwind/assets/css/perfect-scrollbar.css',
+            '/resources/soft-ui-dashboard-tailwind/assets/js/plugins/perfect-scrollbar.min.js',
+            '/resources/soft-ui-dashboard-tailwind/assets/js/soft-ui-dashboard-tailwind.js',
         ])
 
         <!-- Styles -->
@@ -30,7 +30,7 @@
         <title>{{ $title ?? 'Page Title' }}</title>
     </head>
     <body class="m-0 font-sans antialiased font-normal text-base leading-default bg-gray-50 text-slate-500">
-        
+
         <livewire:portal.side-nav />
 
         <main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
