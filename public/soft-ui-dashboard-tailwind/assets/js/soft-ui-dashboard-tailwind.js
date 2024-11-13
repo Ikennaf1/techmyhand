@@ -21,7 +21,7 @@ var aux = window.location.pathname.split("/");
 var to_build = '/';
 var root = window.location.pathname.split("/")
 if (!aux.includes("pages")) {
-  page = "dashboard";
+  page = "portal";
 }
 
 loadStylesheet(to_build + "assets/css/perfect-scrollbar.css");
@@ -62,7 +62,7 @@ if (document.querySelector("canvas")) {
 function loadJS(FILE_URL, async) {
   let dynamicScript = document.createElement("script");
 
-  dynamicScript.setAttribute("src", FILE_URL);
+  dynamicScript.setAttribute("src", `/soft-ui-dashboard-tailwind${FILE_URL}`);
   dynamicScript.setAttribute("type", "text/javascript");
   dynamicScript.setAttribute("async", async);
 
@@ -72,7 +72,7 @@ function loadJS(FILE_URL, async) {
 function loadStylesheet(FILE_URL) {
   let dynamicStylesheet = document.createElement("link");
 
-  dynamicStylesheet.setAttribute("href", FILE_URL);
+  dynamicStylesheet.setAttribute("href", `/soft-ui-dashboard-tailwind${FILE_URL}`);
   dynamicStylesheet.setAttribute("type", "text/css");
   dynamicStylesheet.setAttribute("rel", "stylesheet");
 

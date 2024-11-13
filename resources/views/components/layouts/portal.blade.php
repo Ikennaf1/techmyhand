@@ -6,21 +6,29 @@
 
         <!-- Scripts -->
         @vite([
-            '/resources/css/app.css',
-            '/resources/js/app.js',
+            'resources/css/app.css',
+            'resources/js/app.js',
             // Soft UI Dasboard scripts
-            '/resources/soft-ui-dashboard-tailwind/assets/css/soft-ui-dashboard-tailwind.css',
-            '/resources/soft-ui-dashboard-tailwind/assets/css/nucleo-icons.css',
-            '/resources/soft-ui-dashboard-tailwind/assets/css/nucleo-svg.css',
-            '/resources/soft-ui-dashboard-tailwind/assets/css/perfect-scrollbar.css',
-            '/resources/soft-ui-dashboard-tailwind/assets/js/plugins/perfect-scrollbar.min.js',
-            '/resources/soft-ui-dashboard-tailwind/assets/js/soft-ui-dashboard-tailwind.js',
+            // 'resources/soft-ui-dashboard-tailwind/assets/css/soft-ui-dashboard-tailwind.css',
+            // 'resources/soft-ui-dashboard-tailwind/assets/css/nucleo-icons.css',
+            // 'resources/soft-ui-dashboard-tailwind/assets/css/nucleo-svg.css',
+            // 'resources/soft-ui-dashboard-tailwind/assets/css/perfect-scrollbar.css',
+            // 'resources/soft-ui-dashboard-tailwind/assets/js/plugins/perfect-scrollbar.min.js',
+            // 'resources/soft-ui-dashboard-tailwind/assets/js/soft-ui-dashboard-tailwind.js',
         ])
 
         <!-- Styles -->
         @livewireStyles
 
         {{-- Soft UI Dashboard Assets --}}
+        <link href="/soft-ui-dashboard-tailwind/assets/css/soft-ui-dashboard-tailwind.css" rel="stylesheet" />
+        <link href="/soft-ui-dashboard-tailwind/assets/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="/soft-ui-dashboard-tailwind/assets/css/nucleo-svg.css" rel="stylesheet" />
+        <link href="/soft-ui-dashboard-tailwind/assets/css/perfect-scrollbar.css" rel="stylesheet" />
+
+        <script src="/soft-ui-dashboard-tailwind/assets/js/plugins/perfect-scrollbar.min.js" crossorigin="anonymous"></script>
+        <script src="/soft-ui-dashboard-tailwind/assets/js/soft-ui-dashboard-tailwind.js" crossorigin="anonymous"></script>
+
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
