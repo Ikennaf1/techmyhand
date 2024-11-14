@@ -10,7 +10,7 @@
                       <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Lessons</p>
                       <h5 class="mb-0 font-bold">
                         {{$topicCount}}
-                        <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">Add new lesson</span>
+                        <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">+ New lesson</span>
                       </h5>
                     </div>
                   </div>
@@ -33,7 +33,7 @@
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Tutorials</p>
                                 <h5 class="mb-0 font-bold">
                                     {{$topicCount}}
-                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">Add new tutorial</span>
+                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">+ New tutorial</span>
                                 </h5>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Courses</p>
                                 <h5 class="mb-0 font-bold">
                                     {{$topicCount}}
-                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">Add new course</span>
+                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">+ New course</span>
                                 </h5>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Mega Courses</p>
                                 <h5 class="mb-0 font-bold">
                                     {{$topicCount}}
-                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">Add mega course</span>
+                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">+ New mega course</span>
                                 </h5>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
         <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 lg:flex-none">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
               <div class="flex-auto p-4">
-                <div class="flex flex-wrap -mx-3">
+                <div class="flex -mx-3 h-56">
                   <div class="max-w-full px-3 lg:w-1/2 lg:flex-none">
                     <div class="flex flex-col h-full">
                       <p class="pt-2 mb-1 font-semibold">Last Uploaded Lesson</p>
@@ -114,7 +114,7 @@
                       </a>
                     </div>
                   </div>
-                  <div class="max-w-full h-56 px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
+                  <div class="max-w-full h-full px-3 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
                     <div class="h-full bg-gradient-to-tl from-purple-700 to-pink-500 rounded-xl overflow-hidden">
                       <img src="/soft-ui-dashboard-tailwind/assets/img/shapes/waves-white.svg" class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />
                       <div class="relative flex items-center justify-center h-full">
@@ -167,7 +167,7 @@
         <div class="w-full max-w-full px-3 mb-6 lg:mb-0 lg:w-7/12 lg:flex-none mt-6">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
               <div class="flex-auto p-4">
-                <div class="flex flex-wrap -mx-3">
+                <div class="flex -mx-3 h-56">
                   <div class="max-w-full px-3 lg:w-1/2 lg:flex-none">
                     <div class="flex flex-col h-full">
                       <p class="pt-2 mb-1 font-semibold">Last Uploaded Mega Course</p>
@@ -179,11 +179,11 @@
                       </a>
                     </div>
                   </div>
-                  <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
-                    <div class="h-full bg-gradient-to-tl from-purple-700 to-pink-500 rounded-xl">
+                  <div class="max-w-full h-full px-3 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
+                    <div class="h-full bg-gradient-to-tl from-purple-700 to-pink-500 rounded-xl overflow-hidden">
                       <img src="/soft-ui-dashboard-tailwind/assets/img/shapes/waves-white.svg" class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />
                       <div class="relative flex items-center justify-center h-full">
-                        <img class="relative z-20 w-full pt-6" src="/soft-ui-dashboard-tailwind/assets/img/illustrations/rocket-white.png" alt="rocket" />
+                        <img class="relative z-20 w-full h-full object-center object-cover" src="{{$lastUploadedLessonFeaturedImage}}" alt="rocket" />
                       </div>
                     </div>
                   </div>
