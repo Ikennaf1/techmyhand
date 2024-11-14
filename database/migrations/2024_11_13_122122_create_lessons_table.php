@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('video_link');
             $table->string('featured_image');
+            $table->string('description');
             $table->integer('addendum_id')->nullable();
             $table->integer('user_id');
             $table->timestamps();

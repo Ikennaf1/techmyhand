@@ -11,8 +11,13 @@ class ManageCourses extends Component
     {
         $user = Auth::user();
         $topicCount = $user->lessons()->count();
+        $lastUploadedLesson = $user->lessons()->latest()->first();
+
         return view('livewire.portal.manage-courses', [
             'topicCount' => $topicCount,
+            'lastUploadedLessonTitle' => $lastUploadedLesson->title,
+            'lastUploadedLessonDescription' => $lastUploadedLesson->description,
+            'lastUploadedLessonFeaturedImage' => $lastUploadedLesson->featured_image
         ])->layout('components.layouts.portal')
             ->title('Manage Courses');;
     }
