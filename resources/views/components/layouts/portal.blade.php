@@ -8,13 +8,6 @@
         @vite([
             'resources/css/app.css',
             'resources/js/app.js',
-            // Soft UI Dasboard scripts
-            // 'resources/soft-ui-dashboard-tailwind/assets/css/soft-ui-dashboard-tailwind.css',
-            // 'resources/soft-ui-dashboard-tailwind/assets/css/nucleo-icons.css',
-            // 'resources/soft-ui-dashboard-tailwind/assets/css/nucleo-svg.css',
-            // 'resources/soft-ui-dashboard-tailwind/assets/css/perfect-scrollbar.css',
-            // 'resources/soft-ui-dashboard-tailwind/assets/js/plugins/perfect-scrollbar.min.js',
-            // 'resources/soft-ui-dashboard-tailwind/assets/js/soft-ui-dashboard-tailwind.js',
         ])
 
         <!-- Styles -->
