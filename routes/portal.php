@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Portal\Home;
 use App\Livewire\Portal\ManageUsers;
 use App\Livewire\Portal\ManageCourses;
+use App\Livewire\Portal\NewLesson;
 
 Route::middleware([
     'auth:sanctum',
@@ -14,5 +15,7 @@ Route::middleware([
     Route::get('/', Home::class)->name('portal.home');
     Route::get('/manage-users', ManageUsers::class)->name('portal.manage-users');
     Route::get('/manage-courses', ManageCourses::class)->name('portal.manage-courses');
+
+    Route::get('/lessons/new', NewLesson::class)->name('portal.lessons.new');
 
 });

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tutorials', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('featured_image');
+            $table->string('featured_image')->nullable();
             $table->string('description');
             $table->integer('user_id');
             $table->timestamps();

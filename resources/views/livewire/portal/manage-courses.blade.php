@@ -10,7 +10,9 @@
                       <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Lessons</p>
                       <h5 class="mb-0 font-bold">
                         {{$topicCount}}
-                        <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">+ New lesson</span>
+                        <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">
+                            <a href="{{route('portal.lessons.new')}}">+ New lesson</a>
+                        </span>
                       </h5>
                     </div>
                   </div>

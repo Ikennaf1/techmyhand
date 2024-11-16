@@ -19,6 +19,6 @@ class ManageCourses extends Component
             'lastUploadedLessonDescription' => $lastUploadedLesson->description,
             'lastUploadedLessonFeaturedImage' => $lastUploadedLesson->featured_image
         ])->layout('components.layouts.portal')
-            ->title('Manage Courses');;
+            ->title('Manage Courses');
     }
 }
