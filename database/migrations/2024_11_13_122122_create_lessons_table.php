@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('video_link');
-            $table->string('featured_image')->nullable();
-            $table->string('description');
-            $table->integer('addendum_id')->nullable();
             $table->integer('user_id');
+            $table->string('title');
+            $table->string('short_description');
+            $table->string('video_link')->nullable();
+            $table->text('content')->nullable();
+            $table->string('featured_image')->nullable();
+            $table->integer('addendum_id')->nullable();
             $table->timestamps();
         });
     }

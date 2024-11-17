@@ -16,8 +16,7 @@ class Lesson extends Model
         'title',
         'video_link',
         'user_id',
-        'featured_image',
-        'description',
+        'short_description',
     ];
 
     /**

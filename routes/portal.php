@@ -17,5 +17,6 @@ Route::middleware([
     Route::get('/manage-courses', ManageCourses::class)->name('portal.manage-courses');
 
     Route::get('/lessons/new', NewLesson::class)->name('portal.lessons.new');
+    Route::get('/lessons/edit/{lesson}', NewLesson::class)->name('portal.lessons.edit');
 
 });
