@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('video_link')->nullable();
             $table->text('content')->nullable();
             $table->string('featured_image')->nullable();
-            $table->integer('addendum_id')->nullable();
+            $table->string('addendum_link')->nullable();
             $table->timestamps();
         });
     }
