@@ -5,6 +5,7 @@ use App\Livewire\Portal\Home;
 use App\Livewire\Portal\ManageUsers;
 use App\Livewire\Portal\ManageCourses;
 use App\Livewire\Portal\NewLesson;
+use App\Livewire\Portal\EditLesson;
 
 Route::middleware([
     'auth:sanctum',
@@ -17,6 +18,6 @@ Route::middleware([
     Route::get('/manage-courses', ManageCourses::class)->name('portal.manage-courses');
 
     Route::get('/lessons/new', NewLesson::class)->name('portal.lessons.new');
-    Route::get('/lessons/edit/{lesson}', NewLesson::class)->name('portal.lessons.edit');
+    Route::get('/lessons/edit/{lesson}', EditLesson::class)->name('portal.lessons.edit');
 
 });

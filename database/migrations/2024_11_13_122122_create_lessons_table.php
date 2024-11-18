@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->string('short_description');
+            $table->string('uniqid');
             $table->string('video_link')->nullable();
             $table->text('content')->nullable();
             $table->string('featured_image')->nullable();

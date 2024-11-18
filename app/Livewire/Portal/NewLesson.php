@@ -22,7 +22,8 @@ class NewLesson extends Component
         $lesson = Lesson::create([
             'title'             => $this->title,
             'user_id'           => Auth::user()->id,
-            'short_description' => $this->short_description
+            'short_description' => $this->short_description,
+            'uniqid'            => uniqid(Auth::user()->email, true)
         ]);
 
         session()->flash('portal_status', 'Lesson successfully created.');
