@@ -104,7 +104,7 @@
         <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 lg:flex-none">
             <div class="flex-auto p-4">
                 <div class="flex -mx-3">
-                  You have no lesson yet.&nbsp;<a class="text-blue-500 hover:underline" href="{{route('portal.lessons.new')}}}">Add a new lesson to get started</a>
+                  You have no lesson yet.&nbsp;<a class="text-blue-500 hover:underline" href="{{route('portal.lessons.new')}}">Add a new lesson to get started</a>
                 </div>
             </div>
         </div>
