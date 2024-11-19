@@ -9,7 +9,7 @@
                 <p class="mb-0">Enter the lesson title and description to continue</p>
               </div>
               <div class="flex-auto p-6">
-                <form role="form" wire:submit="new">
+                <form role="form" wire:submit="new" wire:loading.attr="disabled">
                   <label class="mb-2 ml-1 font-bold text-xs text-slate-700">Title @error('title') <span class="text-xs font-normal text-red-500 italic">- {{ $message }}</span> @enderror </label>
                     <div class="mb-4">
                         <input type="text" wire:model="title" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Title" aria-label="Title" aria-describedby="title-addon" />
@@ -20,7 +20,7 @@
                         <textarea wire:model="short_description" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Short description" aria-label="Short description" aria-describedby="short description-addon"></textarea>
                     </div>
                   <div class="text-center">
-                    <button type="submit" class="inline-block w-full px-6 py-3 mt-6 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-blue-600 to-cyan-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85">Continue</button>
+                    <button wire:loading.attr="disabled" type="submit" class="inline-block w-full px-6 py-3 mt-6 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-blue-600 to-cyan-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85">Continue<span class="text-xs" wire:loading>&nbsp;Submitting...</span></button>
                   </div>
                 </form>
               </div>
