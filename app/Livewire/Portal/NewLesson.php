@@ -9,7 +9,7 @@ use Livewire\Attributes\Validate;
 
 class NewLesson extends Component
 {
-    #[Validate('required|min:5|max:72')] 
+    #[Validate('required|min:5|max:72')]
     public $title = '';
 
     #[Validate('required|min:25|max:128')] 

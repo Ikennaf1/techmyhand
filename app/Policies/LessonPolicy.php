@@ -37,7 +37,7 @@ class LessonPolicy
      */
     public function update(User $user, Lesson $lesson): bool
     {
-        //
+        return $user->id === $lesson->user_id;
     }
 
     /**

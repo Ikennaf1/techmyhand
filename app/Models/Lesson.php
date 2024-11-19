@@ -14,10 +14,13 @@ class Lesson extends Model
      */
     protected $fillable = [
         'title',
-        'video_link',
+        'content',
+        'youtube_video_id',
         'user_id',
         'short_description',
         'uniqid',
+        'summary',
+        'addendum_video_id',
     ];
 
     /**

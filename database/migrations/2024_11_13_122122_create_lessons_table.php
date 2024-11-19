@@ -17,10 +17,11 @@ return new class extends Migration
             $table->string('title');
             $table->string('short_description');
             $table->string('uniqid');
-            $table->string('video_link')->nullable();
+            $table->string('youtube_video_id')->nullable();
             $table->text('content')->nullable();
+            $table->text('summary')->nullable();
             $table->string('featured_image')->nullable();
-            $table->string('addendum_link')->nullable();
+            $table->string('addendum_video_id')->nullable();
             $table->timestamps();
         });
     }
