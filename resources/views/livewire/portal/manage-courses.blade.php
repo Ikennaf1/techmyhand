@@ -110,7 +110,7 @@
                       <p class="pt-2 mb-1 font-semibold">Last Uploaded Lesson</p>
                       <h5 class="font-bold">{{$lastUploadedLesson->title}}</h5>
                       <p class="mb-12">{{$lastUploadedLesson->short_description}}</p>
-                      <a class="mt-auto mb-0 font-semibold leading-normal text-sm group text-slate-500" href="javascript:;">
+                      <a class="mt-auto mb-0 font-semibold leading-normal text-sm group text-slate-500" href="{{route('portal.lessons')}}">
                         See all lessons
                         <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
                       </a>
