@@ -108,8 +108,8 @@
                   <div class="max-w-full px-3 lg:w-1/2 lg:flex-none">
                     <div class="flex flex-col h-full">
                       <p class="pt-2 mb-1 font-semibold">Last Uploaded Lesson</p>
-                      <h5 class="font-bold">{{$lastUploadedLessonTitle}}</h5>
-                      <p class="mb-12">{{$lastUploadedLessonDescription}}</p>
+                      <h5 class="font-bold">{{$lastUploadedLesson->title}}</h5>
+                      <p class="mb-12">{{$lastUploadedLesson->short_description}}</p>
                       <a class="mt-auto mb-0 font-semibold leading-normal text-sm group text-slate-500" href="javascript:;">
                         See all lessons
                         <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
@@ -120,7 +120,7 @@
                     <div class="h-full bg-gradient-to-tl from-purple-700 to-pink-500 rounded-xl overflow-hidden">
                       <img src="/soft-ui-dashboard-tailwind/assets/img/shapes/waves-white.svg" class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />
                       <div class="relative flex items-center justify-center h-full">
-                        <img class="relative z-20 w-full h-full object-center object-cover" src="{{$lastUploadedLessonFeaturedImage}}" alt="rocket" />
+                        <img class="relative z-20 w-full h-full object-center object-cover" src="{{$lastUploadedLesson->featured_image}}" alt="rocket" />
                       </div>
                     </div>
                   </div>
@@ -185,7 +185,7 @@
                     <div class="h-full bg-gradient-to-tl from-purple-700 to-pink-500 rounded-xl overflow-hidden">
                       <img src="/soft-ui-dashboard-tailwind/assets/img/shapes/waves-white.svg" class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />
                       <div class="relative flex items-center justify-center h-full">
-                        <img class="relative z-20 w-full h-full object-center object-cover" src="{{$lastUploadedLessonFeaturedImage}}" alt="rocket" />
+                        <img class="relative z-20 w-full h-full object-center object-cover" src="{{$lastUploadedLesson->featured_image}}" alt="rocket" />
                       </div>
                     </div>
                   </div>

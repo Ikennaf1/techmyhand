@@ -22,9 +22,7 @@ class ManageCourses extends Component
 
         return view('livewire.portal.manage-courses', [
             'lessonCount' => $lessonCount,
-            'lastUploadedLessonTitle' => $lastUploadedLesson->title,
-            'lastUploadedLessonDescription' => $lastUploadedLesson->description,
-            'lastUploadedLessonFeaturedImage' => $lastUploadedLesson->featured_image
+            'lastUploadedLesson' => $lastUploadedLesson
         ])->layout('components.layouts.portal')
             ->title('Manage Courses');
     }
