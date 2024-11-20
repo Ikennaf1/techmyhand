@@ -12,10 +12,7 @@ class Lessons extends Component
 
     public function mount()
     {
-        $this->myLessons = Auth::user()
-            ->lessons()
-            ->orderBy('id', 'DESC')
-            ->get();
+        $this->refreshLessons();
     }
 
     public function deleteLesson($id)
@@ -24,10 +21,7 @@ class Lessons extends Component
         
         $lesson->delete();
 
-        $this->myLessons = Auth::user()
-            ->lessons()
-            ->orderBy('id', 'DESC')
-            ->get();
+        $this->refreshLessons();
         
         session()->flash('portal_status', 'Lesson successfully deleted.');
     }
@@ -37,5 +31,13 @@ class Lessons extends Component
         return view('livewire.portal.lessons')
             ->layout('components.layouts.portal')
             ->title('Lessons');
+    }
+
+    private function refreshLessons()
+    {
+        $this->myLessons = Auth::user()
+            ->lessons()
+            ->orderBy('id', 'DESC')
+            ->get();
     }
 }
