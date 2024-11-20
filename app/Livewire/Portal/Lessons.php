@@ -18,6 +18,8 @@ class Lessons extends Component
     public function deleteLesson($id)
     {
         $lesson = Lesson::find($id);
+
+        $this->authorize('delete', $lesson);
         
         $lesson->delete();
 
