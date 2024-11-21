@@ -17,9 +17,10 @@ class Lesson extends Model
         'content',
         'youtube_video_id',
         'user_id',
-        'short_description',
+        'description',
         'uniqid',
         'summary',
+        'keywords',
         'addendum_video_id',
     ];
 

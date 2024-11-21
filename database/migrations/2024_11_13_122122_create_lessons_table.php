@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('title');
-            $table->string('short_description');
+            $table->string('description');
             $table->string('uniqid');
             $table->string('youtube_video_id')->nullable();
+            $table->string('keywords')->nullable();
             $table->text('content')->nullable();
             $table->text('summary')->nullable();
             $table->string('featured_image')->nullable();

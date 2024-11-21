@@ -14,13 +14,15 @@ class EditLesson extends Component
     public $title;
 
     #[Validate('required|min:25|max:128')]
-    public $short_description;
+    public $description;
 
     #[Validate('required')]
     public $content;
 
     #[Validate('required')]
     public $youtube_video_id;
+
+    public $keywords;
 
     public $addendum_video_id;
 
@@ -30,10 +32,11 @@ class EditLesson extends Component
     {
         $this->lesson = Lesson::findOrFail($lesson);
         $this->title = $this->lesson->title;
-        $this->short_description = $this->lesson->short_description;
+        $this->description = $this->lesson->description;
         $this->content = $this->lesson->content;
         $this->youtube_video_id = $this->lesson->youtube_video_id;
         $this->summary = $this->lesson->summary;
+        $this->keywords = $this->lesson->keywords;
         $this->addendum_video_id = $this->lesson->addendum_video_id;
     }
 

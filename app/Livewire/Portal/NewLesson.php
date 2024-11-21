@@ -13,7 +13,7 @@ class NewLesson extends Component
     public $title = '';
 
     #[Validate('required|min:25|max:128')] 
-    public $short_description = '';
+    public $description = '';
 
     public function new()
     {
@@ -22,7 +22,7 @@ class NewLesson extends Component
         $lesson = Lesson::create([
             'title'             => $this->title,
             'user_id'           => Auth::user()->id,
-            'short_description' => $this->short_description,
+            'description'       => $this->description,
             'uniqid'            => uniqid(Auth::user()->email, true)
         ]);
 
