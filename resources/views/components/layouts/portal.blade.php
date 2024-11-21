@@ -47,8 +47,28 @@
             {{-- <livewire:portal.fixed-plugin /> --}}
         </main>
 
+        @if (session()->has('portal_status'))
+            <div id="portal_status" class="fixed flex flex-col gap-2 p-4 w-72 h-24 bottom-8 right-8 bg-teal-50 text-sm text-black shadow-xl rounded-xl overflow-auto border border-slate-400">
+                <div class="relative font-bold flex w-full justify-between items-center">
+                    <div>Message</div>
+                    <div class="cursor-pointer" id="close_portal_status">&#10005;</div>
+                </div>
+                <div>
+                    {{ session('portal_status') }}
+                </div>
+            </div>
+        @endif
+
         @livewireScripts
     </body>
+
+    <script>
+        var portalStatus = document.querySelector('#portal_status');
+        var closePortalStatus = document.querySelector('#close_portal_status');
+        closePortalStatus.onclick = () => {
+            portalStatus.style.display = 'none';
+        }
+    </script>
     
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </html>
