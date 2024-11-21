@@ -49,7 +49,7 @@ class EditLesson extends Component
             'youtube_video_id' => $this->youtube_video_id
         ]);
 
-        session()->flash('portal_status', 'Lesson successfully created.');
+        session()->flash('portal_status', 'Lesson created successfully.');
     }
 
     public function updated($name, $value) 
@@ -57,6 +57,8 @@ class EditLesson extends Component
         $this->lesson->update([
             $name => $value,
         ]);
+
+        session()->flash('portal_status', 'Lesson edited successfully.');
     }
 
     public function render()
