@@ -35,7 +35,9 @@
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Tutorials</p>
                                 <h5 class="mb-0 font-bold">
                                     {{$lessonCount}}
-                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">+ New tutorial</span>
+                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">
+                                      <a href="{{route('portal.tutorials.new')}}">+ New tutorial</a>
+                                    </span>
                                 </h5>
                             </div>
                         </div>
@@ -120,7 +122,7 @@
                     <div class="h-full bg-gradient-to-tl from-purple-700 to-pink-500 rounded-xl overflow-hidden">
                       <img src="/soft-ui-dashboard-tailwind/assets/img/shapes/waves-white.svg" class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />
                       <div class="relative flex items-center justify-center h-full">
-                        <img class="relative z-20 w-full h-full object-center object-cover" src="{{$lastUploadedLesson->featured_image}}" alt="rocket" />
+                        <img class="relative z-20 w-full h-full object-center object-cover" src="{{$lastUploadedLesson->featured_image}}" alt="{{$lastUploadedLesson->title}}" />
                       </div>
                     </div>
                   </div>
