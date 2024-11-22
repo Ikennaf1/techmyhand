@@ -33,7 +33,7 @@ class EditTutorial extends Component
 
         $this->authorize('update', $this->tutorial);
 
-        $lesson = $this->tutorial->update([
+        $tutorial = $this->tutorial->update([
             'title' => $this->title,
             'content' => $this->content
         ]);
@@ -43,7 +43,7 @@ class EditTutorial extends Component
 
     public function updated($name, $value) 
     {
-        $this->lesson->update([
+        $this->tutorial->update([
             $name => $value,
         ]);
 

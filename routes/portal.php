@@ -7,7 +7,7 @@ use App\Livewire\Portal\ManageCourses;
 use App\Livewire\Portal\Lessons;
 use App\Livewire\Portal\NewLesson;
 use App\Livewire\Portal\EditLesson;
-// use App\Livewire\Portal\Tutorial;
+use App\Livewire\Portal\Tutorials;
 use App\Livewire\Portal\NewTutorial;
 use App\Livewire\Portal\EditTutorial;
 
@@ -25,7 +25,7 @@ Route::middleware([
     Route::get('/lessons/new', NewLesson::class)->name('portal.lessons.new');
     Route::get('/lessons/edit/{lesson}', EditLesson::class)->name('portal.lessons.edit');
 
-    // Route::get('/tutorials', Tutorial::class)->name('portal.tutorials');
+    Route::get('/tutorials', Tutorials::class)->name('portal.tutorials');
     Route::get('/tutorials/new', NewTutorial::class)->name('portal.tutorials.new');
     Route::get('/tutorials/edit/{tutorial}', EditTutorial::class)->name('portal.tutorials.edit');
 

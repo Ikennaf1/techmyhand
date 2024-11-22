@@ -1,5 +1,5 @@
 <div class="flex flex-wrap gap-8 items-start">
-<!-- component -->
+    <!-- component -->
     <form wire:submit="update" class="editor bg-white rounded-xl w-full lg:w-8/12 flex flex-col gap-2 text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl">
         <label class="flex flex-col gap-2 w-full">
             <div class="text-xs font-bold">Title @error('title') <span class="text-xs font-normal text-red-500 italic">- {{ $message }}</span> @enderror </div>

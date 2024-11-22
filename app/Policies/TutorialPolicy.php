@@ -45,7 +45,7 @@ class TutorialPolicy
      */
     public function delete(User $user, Tutorial $tutorial): bool
     {
-        //
+        return $user->id === $tutorial->user_id;
     }
 
     /**
