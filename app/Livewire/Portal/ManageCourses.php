@@ -7,23 +7,23 @@ use Illuminate\Support\Facades\Auth;
 
 class ManageCourses extends Component
 {
-    public $lessonCount;
+    public $lessonsCount;
     public $lastUploadedLesson;
-    public $tutorialCount;
+    public $tutorialsCount;
     public $lastUpdatedTutorial;
 
     public function mount()
     {
         $user = Auth::user();
-        $this->lessonCount = $user->lessons()->count();
+        $this->lessonsCount = $user->lessons()->count();
         $this->lastUploadedLesson = $user->lessons()->latest()->first();
-        $this->tutorialCount = $user->tutorials()->count();
+        $this->tutorialsCount = $user->tutorials()->count();
         $this->lastUpdatedTutorial = $user->tutorials()->latest()->first();
     }
 
     public function render()
     {
-        if ($this->lessonCount === 0) {
+        if ($this->lessonsCount === 0) {
             return view('livewire.portal.manage-courses-no-lesson')
                 ->layout('components.layouts.portal')
                 ->title('Manage Courses');
