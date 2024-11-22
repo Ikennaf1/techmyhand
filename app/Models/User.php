@@ -83,4 +83,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Lesson::class);
     }
+
+    /**
+     * The lessons that belong to the user.
+     */
+    public function tutorials(): HasMany
+    {
+        return $this->hasMany(Tutorial::class);
+    }
 }

@@ -51,7 +51,7 @@
 
         <form wire:submit class="text-gray-800 rounded-xl border border-gray-300 p-4 shadow-lg w-full bg-white">
             <label class="flex flex-col gap-2 w-full">
-                <div class="text-xs font-bold flex gap-8 items-center"><span>Keywords  <span class="font-normal">(Optional. Comma separated.)</span></span><span class="text-xs h-full" wire:loading><img width="32px" height="32px" class="object-fit" src="/imgs/spinner.gif"></span></div>
+                <div class="text-xs font-bold flex gap-8 items-center"><span>Keywords  <span class="font-normal">(Comma separated)</span></span><span class="text-xs h-full" wire:loading><img width="32px" height="32px" class="object-fit" src="/imgs/spinner.gif"></span></div>
                 <div class="w-full">
                     <input wire:model.blur="keywords" wire:dirty.class="border-yellow-500" class="title rounded-xl bg-gray-100 border border-gray-300 p-2 mb-4 outline-none w-full" spellcheck="false" type="text">
                 </div>
@@ -60,7 +60,7 @@
 
         <form wire:submit class="text-gray-800 rounded-xl border border-gray-300 p-4 shadow-lg w-full bg-white">
             <label class="flex flex-col gap-2 w-full">
-                <div class="text-xs font-bold flex gap-8 items-center"><span>YouTube addendum video ID <span class="font-normal">(Optional)</span></span><span class="text-xs h-full" wire:loading><img width="32px" height="32px" class="object-fit" src="/imgs/spinner.gif"></span></div>
+                <div class="text-xs font-bold flex gap-8 items-center"><span>YouTube addendum video ID </span><span class="text-xs h-full" wire:loading><img width="32px" height="32px" class="object-fit" src="/imgs/spinner.gif"></span></div>
                 <div class="w-full">
                     <input wire:model.blur="addendum_video_id" wire:dirty.class="border-yellow-500" class="title rounded-xl bg-gray-100 border border-gray-300 p-2 mb-4 outline-none w-full" spellcheck="false" type="text">
                 </div>

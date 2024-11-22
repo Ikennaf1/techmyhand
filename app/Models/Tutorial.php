@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Tutorial extends Model
 {
@@ -14,8 +15,10 @@ class Tutorial extends Model
     protected $fillable = [
         'title',
         'user_id',
-        'featured_image',
         'description',
+        'content',
+        'keywords',
+        'uniqid',
     ];
 
     /**

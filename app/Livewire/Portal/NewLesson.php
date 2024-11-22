@@ -17,7 +17,9 @@ class NewLesson extends Component
 
     public function new()
     {
-        $this->validate(); 
+        $this->authorize('create', new Lesson);
+
+        $this->validate();
 
         $lesson = Lesson::create([
             'title'             => $this->title,

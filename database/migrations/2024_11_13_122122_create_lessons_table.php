@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('keywords')->nullable();
             $table->text('content')->nullable();
             $table->text('summary')->nullable();
-            $table->string('featured_image')->nullable();
             $table->string('addendum_video_id')->nullable();
             $table->timestamps();
         });

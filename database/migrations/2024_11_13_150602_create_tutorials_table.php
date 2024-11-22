@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('tutorials', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('featured_image')->nullable();
             $table->string('description');
             $table->integer('user_id');
+            $table->string('uniqid');
+            $table->string('keywords')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }

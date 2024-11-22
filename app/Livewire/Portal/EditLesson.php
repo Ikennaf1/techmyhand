@@ -68,9 +68,8 @@ class EditLesson extends Component
     {
         $this->authorize('update', $this->lesson);
 
-        return view('livewire.portal.edit-lesson', [
-            'lesson' => $this->lesson
-        ])->layout('components.layouts.portal')
+        return view('livewire.portal.edit-lesson')
+            ->layout('components.layouts.portal')
             ->title('Edit Lesson');
     }
 }

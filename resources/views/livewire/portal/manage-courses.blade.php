@@ -34,7 +34,7 @@
                             <div>
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Tutorials</p>
                                 <h5 class="mb-0 font-bold">
-                                    {{$lessonCount}}
+                                    {{$tutorialCount}}
                                     <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">
                                       <a href="{{route('portal.tutorials.new')}}">+ New tutorial</a>
                                     </span>
@@ -74,30 +74,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- mega courses -->
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
-                <div class="flex-auto p-4">
-                    <div class="flex flex-row -mx-3">
-                        <div class="flex-none w-2/3 max-w-full px-3">
-                            <div>
-                                <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Mega Courses</p>
-                                <h5 class="mb-0 font-bold">
-                                    {{$lessonCount}}
-                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">+ New mega course</span>
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="px-3 text-right basis-1/3">
-                            <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="size-5 relative top-3 text-white"><path d="M0 96C0 43 43 0 96 0H384h32c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32v64c17.7 0 32 14.3 32 32s-14.3 32-32 32H384 96c-53 0-96-43-96-96V96zM64 416c0 17.7 14.3 32 32 32H352V384H96c-17.7 0-32 14.3-32 32zM247.4 283.8c-3.7 3.7-6.2 4.2-7.4 4.2s-3.7-.5-7.4-4.2c-3.8-3.7-8-10-11.8-18.9c-6.2-14.5-10.8-34.3-12.2-56.9h63c-1.5 22.6-6 42.4-12.2 56.9c-3.8 8.9-8 15.2-11.8 18.9zm42.7-9.9c7.3-18.3 12-41.1 13.4-65.9h31.1c-4.7 27.9-21.4 51.7-44.5 65.9zm0-163.8c23.2 14.2 39.9 38 44.5 65.9H303.5c-1.4-24.7-6.1-47.5-13.4-65.9zM368 192a128 128 0 1 0 -256 0 128 128 0 1 0 256 0zM145.3 208h31.1c1.4 24.7 6.1 47.5 13.4 65.9c-23.2-14.2-39.9-38-44.5-65.9zm31.1-32H145.3c4.7-27.9 21.4-51.7 44.5-65.9c-7.3 18.3-12 41.1-13.4 65.9zm56.1-75.8c3.7-3.7 6.2-4.2 7.4-4.2s3.7 .5 7.4 4.2c3.8 3.7 8 10 11.8 18.9c6.2 14.5 10.8 34.3 12.2 56.9h-63c1.5-22.6 6-42.4 12.2-56.9c3.8-8.9 8-15.2 11.8-18.9z"/></svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     {{-- Row 2 --}}
@@ -111,7 +87,7 @@
                     <div class="flex flex-col h-full">
                       <p class="pt-2 mb-1 font-semibold">Last Uploaded Lesson</p>
                       <h5 class="font-bold">{{$lastUploadedLesson->title}}</h5>
-                      <p class="mb-12">{{$lastUploadedLesson->short_description}}</p>
+                      <p class="mb-12">{{$lastUploadedLesson->description}}</p>
                       <a class="mt-auto mb-0 font-semibold leading-normal text-sm group text-slate-500" href="{{route('portal.lessons')}}">
                         See all lessons
                         <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
@@ -156,9 +132,9 @@
                 <span class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-gray-900 to-slate-800 opacity-80"></span>
                 <div class="relative z-10 flex flex-col flex-auto h-full p-4">
                     <p class="pt-2 mb-1 font-semibold text-white">Last Uploaded Tutorial</p>
-                    <h5 class="pt-2 mb-6 font-bold text-white">Work with the rockets</h5>
-                    <p class="text-white">Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
-                    <a class="mt-auto mb-0 font-semibold leading-normal text-white group text-sm" href="javascript:;">
+                    <h5 class="pt-2 mb-6 font-bold text-white">{{$lastUpdatedTutorial->title}}</h5>
+                    <p class="text-white">{{$lastUpdatedTutorial->description}}</p>
+                    <a class="mt-auto mb-0 font-semibold leading-normal text-white group text-sm" href="{{--route('portal.tutorials')--}}">
                         See all tutorials
                         <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
                     </a>
