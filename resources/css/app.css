@@ -26,3 +26,11 @@
 a.side-nav-link {
     @apply bg-white rounded-lg shadow-soft-xl font-semibold text-slate-700;
 }
+
+.dynamic-input {
+    @apply w-10/12 rounded-xl text-xs text-black mr-2;
+}
+
+.dynamic-input-ctrl {
+    @apply w-2/12 flex items-center justify-around;
+}

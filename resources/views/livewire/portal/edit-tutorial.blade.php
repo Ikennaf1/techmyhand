@@ -58,11 +58,101 @@
                             <div class="text-xs">{{$lesson->description}}</div>
                             <div id="uniq_{{$lesson->id}}" class="text-xs text-black">{{$lesson->uniqid}}</div>
                         </div>
-                        <div class="bg-black text-white text-xs inline-block px-2 py-1 rounded-xl cursor-pointer">Copy ID</div>
+                        <div onclick="copyID(`uniq_{{$lesson->id}}`)" class="bg-black text-white text-xs inline-block px-2 py-1 rounded-xl cursor-pointer">Copy ID</div>
                     </div>
                 @endforeach
             </div>
-            <div class="w-full lg:w-7/12 border">ljhdlgnaf</div>
+            <form id="inputs_id" class="w-full lg:w-4/12 flex flex-col gap-8 bg-white shadow-xl rounded-xl p-4">
+
+                <div id="btm_btns_id" class="flex justify-between items-center">
+                    <div>
+                        <span onclick="appendInput()" class="px-4 py-1 bg-blue-500 text-white text-sm rounded-xl hover:bg-blue-600" role="button">+</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="px-4 py-1 bg-black text-white text-xs font-bold rounded-xl" type="submit">Done</button>
+                        <button class="px-4 py-1 bg-red-300 text-black text-xs rounded-xl" role="button">Clear</button>
+                    </div>
+                </div>
+
+            </form>
         </div>
     </div>
+
+    <script>
+        function copyID(id)
+        {
+            let text = document.querySelector(`#${id}`).innerText;
+            navigator.clipboard.writeText(text);
+        }
+
+        function pasteID(e)
+        {
+            e.value = navigator.clipboard.readText();
+        }
+
+        function makeInputID()
+        {
+            let prefix = 'inputs_';
+            let randomInt = Math.round(Math.random() * 100000);
+            return `${prefix}${randomInt}`;
+        }
+
+        function makeDynamicInput()
+        {
+            let id = makeInputID();
+            let node = document.createElement('div');
+            node.setAttribute('id', id);
+            node.setAttribute('class', 'flex justify-between items-center w-full');
+
+            let input = document.createElement('input');
+            input.setAttribute('onfocus', 'pasteID(this)');
+            input.setAttribute('type', 'text');
+            input.setAttribute('placeholder', 'Paste ID here');
+            input.setAttribute('class', 'dynamic-input');
+
+            node.appendChild(input);
+
+            let btnContainer = document.createElement('div');
+            btnContainer.setAttribute('class', 'dynamic-input-ctrl');
+
+            let addBtn = document.createElement('div');
+            addBtn.setAttribute('onclick', `appendInputBelow('${id}')`);
+            addBtn.setAttribute('class', 'w-8 h-8 flex items-center justify-center bg-blue-400 text-white rounded-xl');
+            addBtn.setAttribute('title', 'Add lesson below');
+            addBtn.innerText = '+';
+
+            let removeBtn = document.createElement('div');
+            removeBtn.setAttribute('onclick', `removeInput("${id}")`);
+            removeBtn.setAttribute('class', 'w-8 h-8 flex items-center justify-center bg-slate-500 text-white rounded-xl');
+            removeBtn.setAttribute('title', 'Remove this lesson');
+            removeBtn.innerText = '-';
+
+            btnContainer.appendChild(addBtn);
+            btnContainer.appendChild(removeBtn);
+
+            node.appendChild(btnContainer);
+
+            return node;
+        }
+
+        function appendInput()
+        {
+            let btn = document.querySelector('#btm_btns_id');
+            let newNode = makeDynamicInput();
+            btn.insertAdjacentElement('beforebegin', newNode);
+        }
+
+        function appendInputBelow(id)
+        {
+            let node = document.querySelector(`#${id}`);
+            let newNode = makeDynamicInput();
+            node.insertAdjacentElement('afterend', newNode);
+        }
+
+        function removeInput(id)
+        {
+            let node = document.querySelector(`#${id}`);
+            node.remove();
+        }
+    </script>
 </div>
