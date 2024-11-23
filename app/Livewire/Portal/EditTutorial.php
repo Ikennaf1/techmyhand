@@ -4,11 +4,14 @@ namespace App\Livewire\Portal;
 
 use Livewire\Component;
 use App\Models\Tutorial;
-use Livewire\Attributes\Validate; 
+use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Auth;
 
 class EditTutorial extends Component
 {
     public $tutorial;
+
+    public $lessons;
 
     #[Validate('required|min:5|max:72')]
     public $title;
@@ -21,6 +24,7 @@ class EditTutorial extends Component
     public function mount($tutorial)
     {
         $this->tutorial = Tutorial::findOrFail($tutorial);
+        $this->lessons = Auth::user()->lessons()->latest()->get();
         $this->title = $this->tutorial->title;
         $this->description = $this->tutorial->description;
         $this->content = $this->tutorial->content;

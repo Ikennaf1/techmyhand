@@ -6,6 +6,10 @@
     display: none;
 }
 
+* {
+    @apply transition duration-500 ease-in-out;
+}
+
 *, ::before, ::after {
     --tw-ring-offset-shadow: 0 0 #0000;
     --tw-ring-shadow: 0 0 #0000;
