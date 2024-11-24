@@ -58,7 +58,7 @@
                             <div class="text-xs">{{$lesson->description}}</div>
                             <div id="uniq_{{$lesson->id}}" class="text-xs text-black">{{$lesson->uniqid}}</div>
                         </div>
-                        <div onclick="copyID(`uniq_{{$lesson->id}}`)" class="bg-black text-white text-xs inline-block px-2 py-1 rounded-xl cursor-pointer">Copy ID</div>
+                        <div onclick="copyID(`uniq_{{$lesson->id}}`, this)" class="bg-black text-white text-xs inline-block px-2 py-1 rounded-xl cursor-pointer">Copy ID</div>
                     </div>
                 @endforeach
             </div>
@@ -79,10 +79,15 @@
     </div>
 
     <script>
-        function copyID(id)
+        function copyID(id, e)
         {
             let text = document.querySelector(`#${id}`).innerText;
+            let label = e.innerText;
             navigator.clipboard.writeText(text);
+            e.innerText = 'Copied!';
+            setTimeout(() => {
+                e.innerText = label;
+            }, 3000);
         }
 
         function pasteID(e)
@@ -119,12 +124,14 @@
             addBtn.setAttribute('onclick', `appendInputBelow('${id}')`);
             addBtn.setAttribute('class', 'w-8 h-8 flex items-center justify-center bg-blue-400 text-white rounded-xl');
             addBtn.setAttribute('title', 'Add lesson below');
+            addBtn.setAttribute('role', 'button');
             addBtn.innerText = '+';
 
             let removeBtn = document.createElement('div');
             removeBtn.setAttribute('onclick', `removeInput("${id}")`);
             removeBtn.setAttribute('class', 'w-8 h-8 flex items-center justify-center bg-slate-500 text-white rounded-xl');
             removeBtn.setAttribute('title', 'Remove this lesson');
+            removeBtn.setAttribute('role', 'button');
             removeBtn.innerText = '-';
 
             btnContainer.appendChild(addBtn);
