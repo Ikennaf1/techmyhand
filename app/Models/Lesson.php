@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Lesson extends Model
 {
@@ -30,5 +31,14 @@ class Lesson extends Model
     public function users(): BelongsTo
     {
         return $this->BelongsTo(User::class);
+    }
+
+    /**
+     * The tutorials that belong to the lesson.
+     */
+    public function tutorials(): BelongsToMany
+    {
+        return $this->belongsToMany(Tutorial::class)
+            ->withTimestamps();
     }
 }

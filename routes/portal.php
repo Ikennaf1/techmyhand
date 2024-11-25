@@ -10,6 +10,7 @@ use App\Livewire\Portal\EditLesson;
 use App\Livewire\Portal\Tutorials;
 use App\Livewire\Portal\NewTutorial;
 use App\Livewire\Portal\EditTutorial;
+use App\Http\Controllers\TutorialLessonController;
 
 Route::middleware([
     'auth:sanctum',
@@ -28,5 +29,7 @@ Route::middleware([
     Route::get('/tutorials', Tutorials::class)->name('portal.tutorials');
     Route::get('/tutorials/new', NewTutorial::class)->name('portal.tutorials.new');
     Route::get('/tutorials/edit/{tutorial}', EditTutorial::class)->name('portal.tutorials.edit');
+    Route::post('/tutorials/edit/addTutorialLesson/{tutorial}', [TutorialLessonController::class, 'store'])
+        ->name('portal.tutorials.addTutorialLesson');
 
 });

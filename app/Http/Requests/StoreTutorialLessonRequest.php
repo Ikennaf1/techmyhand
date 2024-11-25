@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreTutorialLessonRequest extends FormRequest
 {
@@ -11,7 +12,8 @@ class StoreTutorialLessonRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        $user = Auth::user();
+        return $user->roles()->find($user) !== null;
     }
 
     /**

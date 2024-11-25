@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\TutorialLesson;
+use App\Models\Tutorial;
 use App\Http\Requests\StoreTutorialLessonRequest;
 use App\Http\Requests\UpdateTutorialLessonRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TutorialLessonController extends Controller
 {
@@ -29,7 +31,30 @@ class TutorialLessonController extends Controller
      */
     public function store(StoreTutorialLessonRequest $request)
     {
-        //
+        // dd($request->input());
+        $oldLessons = TutorialLesson::where('tutorial_id', $request->tutorial)
+            ->get();
+        
+        if ($oldLessons->count() > 0) {
+            foreach ($oldLessons as $oldLesson) {
+                $oldLesson->delete();
+            }
+        }
+
+        foreach ($request->input() as $key => $value) {
+            if ($key === '_token') continue;
+            if (empty($value)) continue;
+
+            TutorialLesson::create([
+                'user_id' => Auth::user()->id,
+                'tutorial_id' => $request->tutorial,
+                'lesson_uniqid' => $value
+            ]);
+        }
+
+        session()->flash('portal_status', 'Tutorial updated successfully.');
+
+        return redirect()->back();
     }
 
     /**

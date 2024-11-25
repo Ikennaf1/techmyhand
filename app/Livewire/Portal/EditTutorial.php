@@ -4,6 +4,7 @@ namespace App\Livewire\Portal;
 
 use Livewire\Component;
 use App\Models\Tutorial;
+use App\Models\TutorialLesson;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,6 +13,8 @@ class EditTutorial extends Component
     public $tutorial;
 
     public $lessons;
+
+    public $tutorialLessons;
 
     #[Validate('required|min:5|max:72')]
     public $title;
@@ -29,6 +32,8 @@ class EditTutorial extends Component
         $this->description = $this->tutorial->description;
         $this->content = $this->tutorial->content;
         $this->keywords = $this->tutorial->keywords;
+        $this->tutorialLessons = TutorialLesson::where('tutorial_id', $tutorial)
+            ->get();
     }
 
     public function update()
@@ -43,11 +48,6 @@ class EditTutorial extends Component
         ]);
 
         session()->flash('portal_status', 'Tutorial created successfully.');
-    }
-
-    public function addTutorialLesson()
-    {
-        dd(request()->input());
     }
 
     public function updated($name, $value) 

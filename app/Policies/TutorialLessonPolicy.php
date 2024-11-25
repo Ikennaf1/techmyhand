@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\TutorialLesson;
+use App\Models\Tutorial;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
@@ -37,7 +38,7 @@ class TutorialLessonPolicy
      */
     public function update(User $user, TutorialLesson $tutorialLesson): bool
     {
-        //
+        return $user->id === $tutorialLesson->user_id;
     }
 
     /**

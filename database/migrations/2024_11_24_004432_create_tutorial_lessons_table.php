@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tutorial_lessons', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('lesson_id');
+            $table->integer('lesson_uniqid');
             $table->integer('tutorial_id');
             $table->timestamps();
         });
