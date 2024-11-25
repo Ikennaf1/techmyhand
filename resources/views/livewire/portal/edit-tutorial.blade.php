@@ -67,7 +67,7 @@
                 @if ($tutorialLessons->count() > 0)
                     @foreach ($tutorialLessons as $tutorialLesson)
                         <div id="input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}" class="flex justify-between items-center w-full">
-                            <input onfocus="pasteID(this)" type="text" value="{{$tutorialLesson->lesson_uniqid}}" class="dynamic-input">
+                            <input onfocus="pasteID(this)" name="input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}" type="text" value="{{$tutorialLesson->lesson_uniqid}}" class="dynamic-input">
                             <div class="dynamic-input-ctrl">
                                 <div role="button" title="Add lesson below" onclick="appendInputBelow('input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}')" class="w-8 h-8 flex items-center justify-center bg-blue-400 text-white rounded-xl">
                                     +

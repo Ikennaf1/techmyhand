@@ -31,7 +31,6 @@ class TutorialLessonController extends Controller
      */
     public function store(StoreTutorialLessonRequest $request)
     {
-        // dd($request->input());
         $oldLessons = TutorialLesson::where('tutorial_id', $request->tutorial)
             ->get();
         
@@ -42,8 +41,7 @@ class TutorialLessonController extends Controller
         }
 
         foreach ($request->input() as $key => $value) {
-            if ($key === '_token') continue;
-            if (empty($value)) continue;
+            if ($key === '_token' || empty($value)) continue;
 
             TutorialLesson::create([
                 'user_id' => Auth::user()->id,

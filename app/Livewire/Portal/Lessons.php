@@ -5,6 +5,7 @@ namespace App\Livewire\Portal;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Lesson;
+use App\Events\LessonDeleted;
 
 class Lessons extends Component
 {
@@ -26,6 +27,8 @@ class Lessons extends Component
         $this->refreshLessons();
         
         session()->flash('portal_status', 'Lesson successfully deleted.');
+
+        LessonDeleted::dispatch($lesson);
     }
 
     public function render()
