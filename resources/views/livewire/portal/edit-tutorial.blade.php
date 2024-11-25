@@ -62,15 +62,20 @@
                     </div>
                 @endforeach
             </div>
-            <form id="inputs_id" class="w-full lg:w-4/12 flex flex-col gap-8 bg-white shadow-xl rounded-xl p-4">
+            <form wire:submit="addTutorialLesson" id="inputs_id" class="w-full lg:w-4/12 flex flex-col gap-8 bg-white shadow-xl rounded-xl p-4">
 
-                <div id="btm_btns_id" class="flex justify-between items-center">
-                    <div>
-                        <span onclick="appendInput()" class="px-4 py-1 bg-blue-500 text-white text-sm rounded-xl hover:bg-blue-600" role="button">+</span>
-                    </div>
-                    <div class="flex gap-4">
-                        <button class="px-4 py-1 bg-black text-white text-xs font-bold rounded-xl" type="submit">Done</button>
-                        <button class="px-4 py-1 bg-red-300 text-black text-xs rounded-xl" role="button">Clear</button>
+                <div id="btm_btns_id" class="flex flex-col gap-8">
+                    <div class="text-sm">Click the '+' or '-' icons to add or remove inputs. Click 'Done' to submit.</div>
+
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span onclick="appendInput()" class="px-4 py-1 bg-blue-500 text-white text-sm rounded-xl hover:bg-blue-600" role="button">+</span>
+                        </div>
+                        <div class="flex gap-4">
+                            {{-- <button class="px-4 py-1 bg-black text-white text-xs font-bold rounded-xl" type="submit">Done</button> --}}
+                            <button type="submit" class="btn rounded-xl p-1 px-4 text-xs font-bold cursor-pointer text-gray-200 h-8 bg-black flex justify-between items-center"><span>Done</span><span class="text-xs h-full" wire:loading><img width="32px" height="32px" class="object-fit" src="/imgs/spinner.gif"></span></button>
+                            <span onclick="clearInputs()" class="px-4 py-1 bg-red-300 text-black text-xs rounded-xl" role="button">Clear</span>
+                        </div>
                     </div>
                 </div>
 
@@ -112,6 +117,7 @@
             let input = document.createElement('input');
             input.setAttribute('onfocus', 'pasteID(this)');
             input.setAttribute('type', 'text');
+            input.setAttribute('name', id);
             input.setAttribute('placeholder', 'Paste ID here');
             input.setAttribute('class', 'dynamic-input');
 
@@ -160,6 +166,14 @@
         {
             let node = document.querySelector(`#${id}`);
             node.remove();
+        }
+
+        function clearInputs()
+        {
+            let parent = document.querySelector('#inputs_id');
+            let element = parent.lastElementChild;
+            parent.innerHTML = '';
+            parent.appendChild(element);
         }
     </script>
 </div>

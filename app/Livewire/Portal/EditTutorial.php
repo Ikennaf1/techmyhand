@@ -45,6 +45,11 @@ class EditTutorial extends Component
         session()->flash('portal_status', 'Tutorial created successfully.');
     }
 
+    public function addTutorialLesson()
+    {
+        dd(request()->input());
+    }
+
     public function updated($name, $value) 
     {
         $this->tutorial->update([
