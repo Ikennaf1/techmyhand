@@ -23,7 +23,7 @@ class Tutorial extends Model
     ];
 
     /**
-     * The users that belong to the role.
+     * The tutorials that belong to the user.
      */
     public function users(): BelongsTo
     {

@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <div class="flex flex-col gap-4">
+    {{-- <div class="flex flex-col gap-4">
         <h6>Select lessons to include in tutorial</h6>
 
         <p>Copy the ID of each lesson that belongs to the tutorial, and paste in the order you want them to be presented.</p>
@@ -97,9 +97,9 @@
 
             </form>
         </div>
-    </div>
+    </div> --}}
 
-    <script>
+    {{-- <script>
         function copyID(id, e)
         {
             let text = document.querySelector(`#${id}`).innerText;
@@ -191,5 +191,5 @@
             parent.innerHTML = '';
             parent.appendChild(element);
         }
-    </script>
+    </script> --}}
 </div>

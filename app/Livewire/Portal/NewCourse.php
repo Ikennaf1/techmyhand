@@ -3,11 +3,11 @@
 namespace App\Livewire\Portal;
 
 use Livewire\Component;
-use App\Models\Lesson;
+use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\Validate; 
+use Livewire\Attributes\Validate;
 
-class NewLesson extends Component
+class NewCourse extends Component
 {
     #[Validate('required|min:5|max:72')]
     public $title = '';
@@ -17,26 +17,26 @@ class NewLesson extends Component
 
     public function new()
     {
-        $this->authorize('create', Lesson::class);
+        $this->authorize('create', Course::class);
 
         $this->validate();
 
-        $lesson = Lesson::create([
+        $course = Course::create([
             'title'             => $this->title,
             'user_id'           => Auth::user()->id,
             'description'       => $this->description,
             'uniqid'            => uniqid('', true)
         ]);
 
-        session()->flash('portal_status', 'Lesson successfully created.');
+        session()->flash('portal_status', 'Course successfully created.');
  
-        return $this->redirect(route('portal.lessons.edit', $lesson->id));
+        return $this->redirect(route('portal.courses.edit', $course->id));
     }
 
     public function render()
     {
-        return view('livewire.portal.new-lesson')
+        return view('livewire.portal.new-course')
             ->layout('components.layouts.portal')
-            ->title('Add new lesson');
+            ->title('Add new course');
     }
 }

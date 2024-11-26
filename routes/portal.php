@@ -11,6 +11,8 @@ use App\Livewire\Portal\Tutorials;
 use App\Livewire\Portal\NewTutorial;
 use App\Livewire\Portal\EditTutorial;
 use App\Http\Controllers\TutorialLessonController;
+use App\Livewire\Portal\NewCourse;
+use App\Livewire\Portal\EditCourse;
 
 Route::middleware([
     'auth:sanctum',
@@ -32,4 +34,6 @@ Route::middleware([
     Route::post('/tutorials/edit/addTutorialLesson/{tutorial}', [TutorialLessonController::class, 'store'])
         ->name('portal.tutorials.addTutorialLesson');
 
+    Route::get('/courses/new', NewCourse::class)->name('portal.courses.new');
+    Route::get('/courses/edit/{course}', EditCourse::class)->name('portal.courses.edit');
 });

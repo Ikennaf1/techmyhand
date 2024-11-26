@@ -29,7 +29,7 @@ class CoursePolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->roles()->find($user) !== null;
     }
 
     /**
@@ -37,7 +37,7 @@ class CoursePolicy
      */
     public function update(User $user, Course $course): bool
     {
-        //
+        return $user->id === $course->user_id;
     }
 
     /**

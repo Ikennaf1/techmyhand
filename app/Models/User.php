@@ -91,4 +91,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tutorial::class);
     }
+
+    /**
+     * The courses that belong to the user.
+     */
+    public function courses(): HasMany
+    {
+        return $this->hasMany(Course::class);
+    }
 }
