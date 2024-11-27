@@ -51,16 +51,22 @@
 
         <div class="flex gap-8 flex-wrap items-start">
             <div class="w-full lg:w-4/12 flex flex-col gap-8">
-                @foreach ($tutorials as $tutorial)
-                <div key="{{$tutorial->id}}" class="bg-white shadow-lg p-4 flex items-center justify-between rounded-xl">
-                        <div class="flex flex-col gap-2">
-                            <div class="text-xs font-bold">{{$tutorial->title}}</div>
-                            <div class="text-xs">{{$tutorial->description}}</div>
-                            <div id="uniq_{{$tutorial->id}}" class="text-xs text-black">{{$tutorial->uniqid}}</div>
+                @if ($tutorials->count() > 0)
+                    @foreach ($tutorials as $tutorial)
+                    <div key="{{$tutorial->id}}" class="bg-white shadow-lg p-4 flex items-center justify-between rounded-xl">
+                            <div class="flex flex-col gap-2">
+                                <div class="text-xs font-bold">{{$tutorial->title}}</div>
+                                <div class="text-xs">{{$tutorial->description}}</div>
+                                <div id="uniq_{{$tutorial->id}}" class="text-xs text-black">{{$tutorial->uniqid}}</div>
+                            </div>
+                            <div onclick="copyID(`uniq_{{$tutorial->id}}`, this)" class="bg-black text-white text-xs inline-block px-2 py-1 rounded-xl cursor-pointer">Copy ID</div>
                         </div>
-                        <div onclick="copyID(`uniq_{{$tutorial->id}}`, this)" class="bg-black text-white text-xs inline-block px-2 py-1 rounded-xl cursor-pointer">Copy ID</div>
+                    @endforeach
+                @else
+                    <div>
+                        No tutorials found. <a class="text-blue-400" href="{{route('portal.tutorials.new')}}">Add a new tutorial to get started.</a>
                     </div>
-                @endforeach
+                @endif
             </div>
             <form action="{{route('portal.courses.addCourseTutorial', $course->id)}}" method="POST" id="inputs_id" class="w-full lg:w-4/12 flex flex-col gap-8 bg-white shadow-xl rounded-xl p-4">
 

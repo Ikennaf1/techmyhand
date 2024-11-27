@@ -22,7 +22,7 @@ class RemoveDeletedLessonFromTutorialLessonsDB
      */
     public function handle(LessonDeleted $event): void
     {
-        $lesson = $event->Lesson;
+        $lesson = $event->lesson;
         $lessons = TutorialLesson::where('lesson_uniqid', $lesson->uniqid)
             ->get();
 

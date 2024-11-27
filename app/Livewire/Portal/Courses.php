@@ -16,7 +16,7 @@ class Courses extends Component
         $this->refreshCourses();
     }
 
-    public function deleteLesson($id)
+    public function deleteCourse($id)
     {
         $course = Course::find($id);
 

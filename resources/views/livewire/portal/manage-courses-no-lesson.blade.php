@@ -1,7 +1,7 @@
 <div>
     <div class="flex flex-wrap -mx-3">
         <!-- lessons -->
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-4/12">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
               <div class="flex-auto p-4">
                 <div class="flex flex-row -mx-3">
@@ -9,7 +9,7 @@
                     <div>
                       <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Lessons</p>
                       <h5 class="mb-0 font-bold">
-                        {{$lessonCount}}
+                        {{$lessonsCount}}
                         <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">
                             <a href="{{route('portal.lessons.new')}}">+ New lesson</a>
                         </span>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <!-- tutorials -->
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-4/12">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex-auto p-4">
                     <div class="flex flex-row -mx-3">
@@ -34,7 +34,7 @@
                             <div>
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Tutorials</p>
                                 <h5 class="mb-0 font-bold">
-                                    {{$lessonCount}}
+                                    {{$tutorialsCount}}
                                     <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">+ New tutorial</span>
                                 </h5>
                             </div>
@@ -50,7 +50,7 @@
         </div>
 
         <!-- courses -->
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-4/12">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex-auto p-4">
                     <div class="flex flex-row -mx-3">
@@ -58,7 +58,7 @@
                             <div>
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Courses</p>
                                 <h5 class="mb-0 font-bold">
-                                    {{$lessonCount}}
+                                    {{$coursesCount}}
                                     <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">+ New course</span>
                                 </h5>
                             </div>
@@ -73,38 +73,14 @@
             </div>
         </div>
 
-        <!-- mega courses -->
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+        {{-- Row 2 --}}
+        <div class="flex flex-wrap mt-6 -mx-3 overflow-x-hidden">
+            {{-- lessons --}}
+            <div class="w-full px-3 mb-6 lg:mb-0 lg:flex-none">
                 <div class="flex-auto p-4">
-                    <div class="flex flex-row -mx-3">
-                        <div class="flex-none w-2/3 max-w-full px-3">
-                            <div>
-                                <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Mega Courses</p>
-                                <h5 class="mb-0 font-bold">
-                                    {{$lessonCount}}
-                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">+ New mega course</span>
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="px-3 text-right basis-1/3">
-                            <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="size-5 relative top-3 text-white"><path d="M0 96C0 43 43 0 96 0H384h32c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32v64c17.7 0 32 14.3 32 32s-14.3 32-32 32H384 96c-53 0-96-43-96-96V96zM64 416c0 17.7 14.3 32 32 32H352V384H96c-17.7 0-32 14.3-32 32zM247.4 283.8c-3.7 3.7-6.2 4.2-7.4 4.2s-3.7-.5-7.4-4.2c-3.8-3.7-8-10-11.8-18.9c-6.2-14.5-10.8-34.3-12.2-56.9h63c-1.5 22.6-6 42.4-12.2 56.9c-3.8 8.9-8 15.2-11.8 18.9zm42.7-9.9c7.3-18.3 12-41.1 13.4-65.9h31.1c-4.7 27.9-21.4 51.7-44.5 65.9zm0-163.8c23.2 14.2 39.9 38 44.5 65.9H303.5c-1.4-24.7-6.1-47.5-13.4-65.9zM368 192a128 128 0 1 0 -256 0 128 128 0 1 0 256 0zM145.3 208h31.1c1.4 24.7 6.1 47.5 13.4 65.9c-23.2-14.2-39.9-38-44.5-65.9zm31.1-32H145.3c4.7-27.9 21.4-51.7 44.5-65.9c-7.3 18.3-12 41.1-13.4 65.9zm56.1-75.8c3.7-3.7 6.2-4.2 7.4-4.2s3.7 .5 7.4 4.2c3.8 3.7 8 10 11.8 18.9c6.2 14.5 10.8 34.3 12.2 56.9h-63c1.5-22.6 6-42.4 12.2-56.9c3.8-8.9 8-15.2 11.8-18.9z"/></svg>
-                            </div>
-                        </div>
+                    <div class="-mx-3">
+                    You have no lesson yet.&nbsp;<a class="text-blue-500 hover:underline" href="{{route('portal.lessons.new')}}">Add a new lesson to get started</a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- Row 2 --}}
-    <div class="flex flex-wrap mt-6 -mx-3 overflow-x-hidden">
-        {{-- lessons --}}
-        <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 lg:flex-none">
-            <div class="flex-auto p-4">
-                <div class="flex -mx-3">
-                  You have no lesson yet.&nbsp;<a class="text-blue-500 hover:underline" href="{{route('portal.lessons.new')}}">Add a new lesson to get started</a>
                 </div>
             </div>
         </div>

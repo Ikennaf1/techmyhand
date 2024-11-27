@@ -25,7 +25,7 @@ class NewTutorial extends Component
             'title'             => $this->title,
             'user_id'           => Auth::user()->id,
             'description'       => $this->description,
-            'uniqid'            => uniqid(Auth::user()->email, true)
+            'uniqid'            => uniqid('', true)
         ]);
 
         session()->flash('portal_status', 'Tutorial successfully created.');
