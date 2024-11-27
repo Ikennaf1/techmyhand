@@ -11,6 +11,8 @@ class ManageCourses extends Component
     public $lastUploadedLesson;
     public $tutorialsCount;
     public $lastUpdatedTutorial;
+    public $coursesCount;
+    public $lastUpdatedCourse;
 
     public function mount()
     {
@@ -19,6 +21,8 @@ class ManageCourses extends Component
         $this->lastUploadedLesson = $user->lessons()->latest()->first();
         $this->tutorialsCount = $user->tutorials()->count();
         $this->lastUpdatedTutorial = $user->tutorials()->latest()->first();
+        $this->coursesCount = $user->courses()->count();
+        $this->lastUpdatedCourse = $user->courses()->latest()->first();
     }
 
     public function render()

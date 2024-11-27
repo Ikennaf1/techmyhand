@@ -1,7 +1,7 @@
 <div>
     <div class="flex flex-wrap -mx-3">
         <!-- lessons -->
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-4/12">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
               <div class="flex-auto p-4">
                 <div class="flex flex-row -mx-3">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <!-- tutorials -->
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-4/12">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex-auto p-4">
                     <div class="flex flex-row -mx-3">
@@ -52,7 +52,7 @@
         </div>
 
         <!-- courses -->
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-4/12">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="flex-auto p-4">
                     <div class="flex flex-row -mx-3">
@@ -60,8 +60,10 @@
                             <div>
                                 <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Courses</p>
                                 <h5 class="mb-0 font-bold">
-                                    {{$lessonsCount}}
-                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">+ New course</span>
+                                    {{$coursesCount}}
+                                    <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">
+                                      <a href="{{route('portal.courses.new')}}">+ New course</a>
+                                    </span>
                                 </h5>
                             </div>
                         </div>
@@ -114,9 +116,9 @@
                 <span class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-gray-900 to-slate-800 opacity-80"></span>
                 <div class="relative z-10 flex flex-col flex-auto h-full p-4">
                     <p class="pt-2 mb-1 font-semibold text-white">Last Uploaded Course</p>
-                    <h5 class="pt-2 mb-6 font-bold text-white">Work with the rockets</h5>
-                    <p class="text-white">Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
-                    <a class="mt-auto mb-0 font-semibold leading-normal text-white group text-sm" href="javascript:;">
+                    <h5 class="pt-2 mb-6 font-bold text-white">{{$lastUpdatedCourse->title}}</h5>
+                    <p class="text-white">{{$lastUpdatedCourse->description}}</p>
+                    <a class="mt-auto mb-0 font-semibold leading-normal text-white group text-sm" href="{{route('portal.courses')}}">
                         See all courses
                         <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
                     </a>

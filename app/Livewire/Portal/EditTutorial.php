@@ -21,7 +21,9 @@ class EditTutorial extends Component
 
     #[Validate('required|min:25|max:128')]
     public $description;
+
     public $content;
+
     public $keywords;
 
     public function mount($tutorial)
@@ -47,7 +49,7 @@ class EditTutorial extends Component
             'content' => $this->content
         ]);
 
-        session()->flash('portal_status', 'Tutorial created successfully.');
+        session()->flash('portal_status', 'Tutorial updated successfully.');
     }
 
     public function updated($name, $value) 

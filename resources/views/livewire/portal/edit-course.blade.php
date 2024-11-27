@@ -44,35 +44,35 @@
         </div>
     </div>
 
-    {{-- <div class="flex flex-col gap-4">
-        <h6>Select lessons to include in tutorial</h6>
+    <div class="flex flex-col gap-4">
+        <h6>Select tutorials to include in the course</h6>
 
-        <p>Copy the ID of each lesson that belongs to the tutorial, and paste in the order you want them to be presented.</p>
+        <p>Copy the ID of each tutorial that belongs to the course, and paste in the order you want them to be presented.</p>
 
         <div class="flex gap-8 flex-wrap items-start">
             <div class="w-full lg:w-4/12 flex flex-col gap-8">
-                @foreach ($lessons as $lesson)
-                <div key="{{$lesson->id}}" class="bg-white shadow-lg p-4 flex items-center justify-between rounded-xl">
+                @foreach ($tutorials as $tutorial)
+                <div key="{{$tutorial->id}}" class="bg-white shadow-lg p-4 flex items-center justify-between rounded-xl">
                         <div class="flex flex-col gap-2">
-                            <div class="text-xs font-bold">{{$lesson->title}}</div>
-                            <div class="text-xs">{{$lesson->description}}</div>
-                            <div id="uniq_{{$lesson->id}}" class="text-xs text-black">{{$lesson->uniqid}}</div>
+                            <div class="text-xs font-bold">{{$tutorial->title}}</div>
+                            <div class="text-xs">{{$tutorial->description}}</div>
+                            <div id="uniq_{{$tutorial->id}}" class="text-xs text-black">{{$tutorial->uniqid}}</div>
                         </div>
-                        <div onclick="copyID(`uniq_{{$lesson->id}}`, this)" class="bg-black text-white text-xs inline-block px-2 py-1 rounded-xl cursor-pointer">Copy ID</div>
+                        <div onclick="copyID(`uniq_{{$tutorial->id}}`, this)" class="bg-black text-white text-xs inline-block px-2 py-1 rounded-xl cursor-pointer">Copy ID</div>
                     </div>
                 @endforeach
             </div>
-            <form action="{{route('portal.tutorials.addTutorialLesson', $tutorial->id)}}" method="POST" id="inputs_id" class="w-full lg:w-4/12 flex flex-col gap-8 bg-white shadow-xl rounded-xl p-4">
+            <form action="{{route('portal.courses.addCourseTutorial', $course->id)}}" method="POST" id="inputs_id" class="w-full lg:w-4/12 flex flex-col gap-8 bg-white shadow-xl rounded-xl p-4">
 
-                @if ($tutorialLessons->count() > 0)
-                    @foreach ($tutorialLessons as $tutorialLesson)
-                        <div id="input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}" class="flex justify-between items-center w-full">
-                            <input onfocus="pasteID(this)" name="input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}" type="text" value="{{$tutorialLesson->lesson_uniqid}}" class="dynamic-input">
+                @if ($courseTutorials->count() > 0)
+                    @foreach ($courseTutorials as $courseTutorial)
+                        <div id="input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}" class="flex justify-between items-center w-full">
+                            <input onfocus="pasteID(this)" name="input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}" type="text" value="{{$courseTutorial->tutorial_uniqid}}" class="dynamic-input">
                             <div class="dynamic-input-ctrl">
-                                <div role="button" title="Add lesson below" onclick="appendInputBelow('input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}')" class="w-8 h-8 flex items-center justify-center bg-blue-400 text-white rounded-xl">
+                                <div role="button" title="Add tutorial below" onclick="appendInputBelow('input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}')" class="w-8 h-8 flex items-center justify-center bg-blue-400 text-white rounded-xl">
                                     +
                                 </div>
-                                <div role="button" title="Remove this lesson" onclick="removeInput('input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}')" class="w-8 h-8 flex items-center justify-center bg-slate-500 text-white rounded-xl">
+                                <div role="button" title="Remove this tutorial" onclick="removeInput('input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}')" class="w-8 h-8 flex items-center justify-center bg-slate-500 text-white rounded-xl">
                                     -
                                 </div>
                             </div>
@@ -97,9 +97,9 @@
 
             </form>
         </div>
-    </div> --}}
+    </div>
 
-    {{-- <script>
+    <script>
         function copyID(id, e)
         {
             let text = document.querySelector(`#${id}`).innerText;
@@ -191,5 +191,5 @@
             parent.innerHTML = '';
             parent.appendChild(element);
         }
-    </script> --}}
+    </script>
 </div>

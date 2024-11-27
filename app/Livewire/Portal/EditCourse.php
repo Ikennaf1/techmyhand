@@ -4,7 +4,7 @@ namespace App\Livewire\Portal;
 
 use Livewire\Component;
 use App\Models\Course;
-// use App\Models\TutorialLesson;
+use App\Models\CourseTutorial;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +14,7 @@ class EditCourse extends Component
 
     public $tutorials;
 
-    // public $tutorialLessons;
+    public $courseTutorials;
 
     #[Validate('required|min:5|max:72')]
     public $title;
@@ -34,8 +34,8 @@ class EditCourse extends Component
         $this->description = $this->course->description;
         $this->content = $this->course->content;
         $this->keywords = $this->course->keywords;
-        // $this->tutorialLessons = TutorialLesson::where('tutorial_id', $tutorial)
-        //     ->get();
+        $this->courseTutorials = CourseTutorial::where('course_id', $course)
+            ->get();
     }
 
     public function update()

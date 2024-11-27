@@ -29,4 +29,13 @@ class Course extends Model
     {
         return $this->BelongsTo(User::class);
     }
+
+    /**
+     * The tutorials that belong to the course.
+     */
+    public function tutorials(): BelongsToMany
+    {
+        return $this->belongsToMany(Tutorial::class, 'course_tutorials')
+            ->withTimestamps();
+    }
 }

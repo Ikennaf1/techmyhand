@@ -38,4 +38,13 @@ class Tutorial extends Model
         return $this->belongsToMany(Lesson::class, 'tutorial_lessons')
             ->withTimestamps();
     }
+
+    /**
+     * The courses that belong to the tutorial.
+     */
+    public function courses(): BelongsToMany
+    {
+        return $this->belongsToMany(Course::class)
+            ->withTimestamps();
+    }
 }
