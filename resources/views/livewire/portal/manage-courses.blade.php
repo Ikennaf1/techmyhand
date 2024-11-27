@@ -110,22 +110,24 @@
         </div>
 
         {{-- Courses --}}
-        <div class="w-full max-w-full px-3 lg:w-5/12 lg:flex-none">
-            <div class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-4">
-              <div class="relative h-full overflow-hidden bg-cover rounded-xl" style="background-image: url('/soft-ui-dashboard-tailwind/assets/img/ivancik.jpg')">
-                <span class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-gray-900 to-slate-800 opacity-80"></span>
-                <div class="relative z-10 flex flex-col flex-auto h-full p-4">
-                    <p class="pt-2 mb-1 font-semibold text-white">Last Uploaded Course</p>
-                    <h5 class="pt-2 mb-6 font-bold text-white">{{$lastUpdatedCourse->title}}</h5>
-                    <p class="text-white">{{$lastUpdatedCourse->description}}</p>
-                    <a class="mt-auto mb-0 font-semibold leading-normal text-white group text-sm" href="{{route('portal.courses')}}">
-                        See all courses
-                        <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
-                    </a>
+        @if ($coursesCount > 0)
+          <div class="w-full max-w-full px-3 lg:w-5/12 lg:flex-none">
+              <div class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-4">
+                <div class="relative h-full overflow-hidden bg-cover rounded-xl" style="background-image: url('/soft-ui-dashboard-tailwind/assets/img/ivancik.jpg')">
+                  <span class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-gray-900 to-slate-800 opacity-80"></span>
+                  <div class="relative z-10 flex flex-col flex-auto h-full p-4">
+                      <p class="pt-2 mb-1 font-semibold text-white">Last Uploaded Course</p>
+                      <h5 class="pt-2 mb-6 font-bold text-white">{{$lastUpdatedCourse->title}}</h5>
+                      <p class="text-white">{{$lastUpdatedCourse->description}}</p>
+                      <a class="mt-auto mb-0 font-semibold leading-normal text-white group text-sm" href="{{route('portal.courses')}}">
+                          See all courses
+                          <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
+                      </a>
+                  </div>
                 </div>
               </div>
-            </div>
-        </div>
+          </div>
+          @endif
 
         {{-- Tutorials --}}
         @if ($tutorialsCount > 0)
@@ -148,7 +150,7 @@
         @endif
 
         {{-- Mega Courses --}}
-        <div class="w-full max-w-full px-3 mb-6 lg:mb-0 lg:w-7/12 lg:flex-none mt-6">
+        {{-- <div class="w-full max-w-full px-3 mb-6 lg:mb-0 lg:w-7/12 lg:flex-none mt-6">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
               <div class="flex-auto p-4">
                 <div class="flex -mx-3 h-56">
@@ -174,6 +176,6 @@
                 </div>
               </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
