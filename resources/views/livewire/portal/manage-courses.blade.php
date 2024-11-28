@@ -7,7 +7,7 @@
                 <div class="flex flex-row -mx-3">
                   <div class="flex-none w-2/3 max-w-full px-3">
                     <div>
-                      <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Lessons</p>
+                      <p class="mb-0 font-sans font-semibold leading-normal text-sm"><a href="{{route('portal.lessons')}}">My Lessons</a></p>
                       <h5 class="mb-0 font-bold">
                         {{$lessonsCount}}
                         <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">
@@ -32,7 +32,7 @@
                     <div class="flex flex-row -mx-3">
                         <div class="flex-none w-2/3 max-w-full px-3">
                             <div>
-                                <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Tutorials</p>
+                                <p class="mb-0 font-sans font-semibold leading-normal text-sm"><a href="{{route('portal.tutorials')}}">My Tutorials</a></p>
                                 <h5 class="mb-0 font-bold">
                                     {{$tutorialsCount}}
                                     <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">
@@ -58,7 +58,7 @@
                     <div class="flex flex-row -mx-3">
                         <div class="flex-none w-2/3 max-w-full px-3">
                             <div>
-                                <p class="mb-0 font-sans font-semibold leading-normal text-sm">My Courses</p>
+                                <p class="mb-0 font-sans font-semibold leading-normal text-sm"><a href="{{route('portal.courses')}}">My Courses</a></p>
                                 <h5 class="mb-0 font-bold">
                                     {{$coursesCount}}
                                     <span class="ml-4 hover:underline leading-normal text-sm font-weight-bolder text-lime-500">

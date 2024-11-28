@@ -11,7 +11,7 @@
                             <thead class="align-bottom">
                                 <tr>
                                 <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Name</th>
-                                <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Role</th>
+                                <th class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Role</th>
                                 <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Started</th>
                                 <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Edit privileges</th>
                                 </tr>
@@ -31,7 +31,7 @@
                                             </div>
                                         </td>
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <p class="mb-0 text-xxs font-bold leading-tight uppercase">{{$adminUser->role}}</p>
+                                            <p class="mb-0 text-xxs text-center font-bold leading-tight uppercase">{{$adminUser->role}}</p>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <span class="text-xs font-semibold leading-tight text-slate-400">{{$adminUser->started_on}}</span>
@@ -61,7 +61,9 @@
                             <thead class="align-bottom">
                                 <tr>
                                     <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Name</th>
-                                    <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Registered</th>
+                                    <th class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Role</th>
+                                    <th class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Registered</th>
+                                    <th class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Assign role</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -78,8 +80,17 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="p-2 text-left align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <span class="text-xs font-semibold leading-tight text-left text-slate-400">{{$user->created_at->diffForHumans()}}</span>
+                                        <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                            <span class="text-xxs font-semibold uppercase leading-tight text-center text-slate-400">{{$user->roles()->find($user)->name}}</span>
+                                        </td>
+                                        <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                            <span class="text-xs font-semibold leading-tight text-center text-slate-400">{{$user->created_at->diffForHumans()}}</span>
+                                        </td>
+                                        
+                                        <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                            <span class="text-xs font-semibold leading-tight text-center text-slate-400">
+                                                <a href="#">Assign role</a>
+                                            </span>
                                         </td>
                                     </tr>                          
                                 @endforeach
