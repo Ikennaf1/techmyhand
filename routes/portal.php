@@ -16,6 +16,8 @@ use App\Livewire\Portal\NewCourse;
 use App\Livewire\Portal\EditCourse;
 use App\Http\Controllers\CourseTutorialController;
 
+use App\Livewire\Portal\Roles;
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -41,4 +43,6 @@ Route::middleware([
     Route::get('/courses/edit/{course}', EditCourse::class)->name('portal.courses.edit');
     Route::post('/courses/edit/addCourseTutorial/{course}', [CourseTutorialController::class, 'store'])
         ->name('portal.courses.addCourseTutorial');
+
+    Route::get('/roles', Roles::class)->name('portal.roles');
 });

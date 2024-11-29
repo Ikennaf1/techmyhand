@@ -3,28 +3,26 @@
 namespace App\Livewire\Portal;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Collection;
+use App\Models\Role;
 use App\Models\UserRole;
 use App\Models\User;
-use App\Models\Role;
+use Illuminate\Support\Collection;
 
-class ManageUsers extends Component
+class Roles extends Component
 {
+    public $roles;
     public $users;
-    public $adminUsers;
 
     public function mount()
     {
-        $this->users = User::orderBy('id', 'DESC')->limit(10)->get();
-        $this->adminUsers = $this->getAdminUsers();
+        $this->refreshComponent();
     }
 
     public function render()
     {
-        return view('livewire.portal.manage-users')
+        return view('livewire.portal.roles')
             ->layout('components.layouts.portal')
-            ->title('Manage Users');
+            ->title('Roles');
     }
 
     private function getAdminUsers()
@@ -43,5 +41,11 @@ class ManageUsers extends Component
         }
 
         return $users->all();
+    }
+
+    private function refreshComponent()
+    {
+        $this->roles = Role::all();
+        $this->users = $this->getAdminUsers();
     }
 }
