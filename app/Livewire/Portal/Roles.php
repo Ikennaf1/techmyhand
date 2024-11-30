@@ -11,7 +11,7 @@ use Illuminate\Support\Collection;
 class Roles extends Component
 {
     public $roles;
-    public $users;
+    public $adminUsers;
 
     public function mount()
     {
@@ -46,6 +46,6 @@ class Roles extends Component
     private function refreshComponent()
     {
         $this->roles = Role::all();
-        $this->users = $this->getAdminUsers();
+        $this->adminUsers = $this->getAdminUsers();
     }
 }
