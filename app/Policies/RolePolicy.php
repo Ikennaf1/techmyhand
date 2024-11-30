@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Auth;
 
 class RolePolicy
 {
@@ -29,7 +30,7 @@ class RolePolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->roles()->find(Auth::user()->id)->name === 'superadmin';
     }
 
     /**
@@ -43,9 +44,9 @@ class RolePolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Role $role): bool
+    public function delete(User $user): bool
     {
-        //
+        return $user->roles()->find(Auth::user()->id)->name === 'superadmin';
     }
 
     /**
