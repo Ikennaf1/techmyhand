@@ -15,16 +15,15 @@ class EditRole extends Component
 
     public function mount($role)
     {
-        $this->role = Role::find($role);
+        $this->role = Role::findOrFail($role);
         $this->name = $this->role->name;
-        dd($this->role->name);
     }
 
-    public function edit()
+    public function update()
     {
         $this->validate();
 
-        $this->role->update([
+        $role = $this->role->update([
             'name' => $this->name
         ]);
 
