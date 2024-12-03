@@ -21,6 +21,8 @@ class EditUserRole extends Component
 
     public function update()
     {
+        $this->authorize('update', UserRole::class);
+        
         $this->unadmin($this->user);
 
         if (Role::find($this->selectedUserRoleID) !== null) {

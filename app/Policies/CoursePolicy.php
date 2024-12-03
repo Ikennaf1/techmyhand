@@ -29,7 +29,7 @@ class CoursePolicy
      */
     public function create(User $user): bool
     {
-        return $user->roles()->find($user) !== null;
+        return $user->roles !== null;
     }
 
     /**

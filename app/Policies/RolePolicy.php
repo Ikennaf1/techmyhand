@@ -30,7 +30,7 @@ class RolePolicy
      */
     public function create(User $user): bool
     {
-        return $user->roles()->find(Auth::user()->id)->name === 'superadmin';
+        return $user->roles->first()->name === 'superadmin';
     }
 
     /**
@@ -38,7 +38,7 @@ class RolePolicy
      */
     public function update(User $user): bool
     {
-        return $user->roles()->find(Auth::user()->id)->name === 'superadmin';
+        return $user->roles->first()->name === 'superadmin';
     }
 
     /**
@@ -46,7 +46,7 @@ class RolePolicy
      */
     public function delete(User $user): bool
     {
-        return $user->roles()->find(Auth::user()->id)->name === 'superadmin';
+        return $user->roles->first()->name === 'superadmin';
     }
 
     /**

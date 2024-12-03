@@ -13,7 +13,6 @@ use Livewire\Attributes\Validate;
 class Roles extends Component
 {
     public $roles;
-    public $adminUsers;
 
     #[Validate('required|min:2|max:72')]
     public $roleName;
@@ -62,28 +61,8 @@ class Roles extends Component
             ->title('Roles');
     }
 
-    private function getAdminUsers()
-    {
-        $users = new Collection;
-        $roles = Role::all();
-        $userRoles = UserRole::all();
-
-        foreach ($userRoles as $userRole) {
-            $user = User::find($userRole->user_id);
-            $user->user_id = $user->id;
-            $user->role = $user->roles->first()->name;
-            $user->started_on = $userRole->created_at->diffForHumans();
-            unset($user->roles);
-            $users = $users->sortBy('role', SORT_NATURAL);
-            $users = $users->merge([$user]);
-        }
-
-        return $users->all();
-    }
-
     private function refreshComponent()
     {
         $this->roles = Role::all();
-        $this->adminUsers = $this->getAdminUsers();
     }
 }

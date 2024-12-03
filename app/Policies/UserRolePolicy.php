@@ -35,9 +35,9 @@ class UserRolePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, UserRole $userRole): bool
+    public function update(User $user): bool
     {
-        //
+        return $user->roles->first()->name === 'superadmin';
     }
 
     /**

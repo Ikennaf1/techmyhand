@@ -81,7 +81,7 @@
                                             </div>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <span class="text-xxs font-semibold uppercase leading-tight text-center text-slate-400">{{$user->roles->first() ? $user->roles->first()->name : ''}}</span>
+                                            <span class="text-xxs font-bold uppercase leading-tight text-center text-slate-400">{{$user->roles->first() ? $user->roles->first()->name : ''}}</span>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <span class="text-xs font-semibold leading-tight text-center text-slate-400">{{$user->created_at->diffForHumans()}}</span>
