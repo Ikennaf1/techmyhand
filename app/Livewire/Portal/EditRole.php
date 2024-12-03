@@ -17,6 +17,7 @@ class EditRole extends Component
     {
         $this->role = Role::find($role);
         $this->name = $this->role->name;
+        dd($this->role->name);
     }
 
     public function edit()
