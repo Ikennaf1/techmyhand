@@ -18,6 +18,7 @@ use App\Http\Controllers\CourseTutorialController;
 
 use App\Livewire\Portal\Roles;
 use App\Livewire\Portal\EditRole;
+use App\Livewire\Portal\EditUserRole;
 
 Route::middleware([
     'auth:sanctum',
@@ -47,4 +48,5 @@ Route::middleware([
 
     Route::get('/roles', Roles::class)->name('portal.roles');
     Route::get('/roles/edit/{role}', EditRole::class)->name('portal.roles.edit');
+    Route::get('/roles/edit-user/{user}', EditUserRole::class)->name('portal.roles.edit-user-role');
 });

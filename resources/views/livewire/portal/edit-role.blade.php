@@ -4,7 +4,7 @@
             <div class="flex flex-col gap-4">
                 <span class="font-bold">Edit role</span>
                 <form wire:submit="update" class="flex flex-row gap-2">
-                    <div class="fle flex-col">
+                    <div class="flex flex-col">
                         @error('name') <span class="text-xs font-normal text-red-500 italic">- {{ $message }}</span> @enderror 
                         <input wire:model="name" class="rounded-xl" type="text">
                     </div>

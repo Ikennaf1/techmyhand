@@ -35,6 +35,7 @@ class ManageUsers extends Component
 
         foreach ($userRoles as $userRole) {
             $user = User::find($userRole->user_id);
+            $user->user_id = $user->id;
             $user->role = $user->roles->first()->name;
             $user->started_on = $userRole->created_at->diffForHumans();
             unset($user->roles);

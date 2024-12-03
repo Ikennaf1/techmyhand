@@ -21,6 +21,8 @@ class EditRole extends Component
 
     public function update()
     {
+        $this->authorize('update', $this->role);
+
         $this->validate();
 
         $role = $this->role->update([

@@ -37,7 +37,7 @@
                                             <span class="text-xs font-semibold leading-tight text-slate-400">{{$adminUser->started_on}}</span>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <a href="javascript:;" class="text-xs font-semibold leading-tight text-slate-400"> Edit </a>
+                                            <a href="{{route('portal.roles.edit-user-role', $adminUser->user_id)}}" class="text-xs font-semibold leading-tight text-slate-400"> Edit </a>
                                         </td>
                                     </tr>                          
                                 @endforeach
@@ -81,14 +81,14 @@
                                             </div>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <span class="text-xxs font-semibold uppercase leading-tight text-center text-slate-400">{{$user->roles()->find($user)->name}}</span>
+                                            <span class="text-xxs font-semibold uppercase leading-tight text-center text-slate-400">{{$user->roles()->find($user) ? $user->roles()->find($user)->name : ''}}</span>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <span class="text-xs font-semibold leading-tight text-center text-slate-400">{{$user->created_at->diffForHumans()}}</span>
                                         </td>                                        
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <span class="text-xs font-semibold leading-tight text-center text-slate-400">
-                                                <a href="#">Assign role</a>
+                                                <a href="{{route('portal.roles.edit-user-role', $user->id)}}">Assign role</a>
                                             </span>
                                         </td>
                                     </tr>                          
