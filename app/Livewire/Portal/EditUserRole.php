@@ -22,7 +22,7 @@ class EditUserRole extends Component
     public function update()
     {
         $this->unadmin($this->user);
-        
+
         if (Role::find($this->selectedUserRoleID) !== null) {
             $userRole = UserRole::create([
                 'user_id' => $this->user->id,
@@ -57,11 +57,7 @@ class EditUserRole extends Component
     {
         $this->user = User::findOrFail($user);
         $this->roles = Role::all();
-        $userRole = $this->user->roles()->where('user_id', $this->user->id);
-        $userRole = $userRole !== null
-            ? $userRole->first()
-            : null;
-
+        $userRole = $this->user->roles->first();
         $this->userRole = $userRole !== null
             ? $userRole->name
             : null;
