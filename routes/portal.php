@@ -4,13 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Portal\Home;
 use App\Livewire\Portal\ManageUsers;
 use App\Livewire\Portal\ManageCourses;
+
 use App\Livewire\Portal\Lessons;
 use App\Livewire\Portal\NewLesson;
 use App\Livewire\Portal\EditLesson;
+
 use App\Livewire\Portal\Tutorials;
 use App\Livewire\Portal\NewTutorial;
 use App\Livewire\Portal\EditTutorial;
 use App\Http\Controllers\TutorialLessonController;
+
 use App\Livewire\Portal\Courses;
 use App\Livewire\Portal\NewCourse;
 use App\Livewire\Portal\EditCourse;
@@ -19,6 +22,8 @@ use App\Http\Controllers\CourseTutorialController;
 use App\Livewire\Portal\Roles;
 use App\Livewire\Portal\EditRole;
 use App\Livewire\Portal\EditUserRole;
+
+use App\Livewire\Portal\Wallets;
 
 Route::middleware([
     'auth:sanctum',
@@ -49,4 +54,7 @@ Route::middleware([
     Route::get('/roles', Roles::class)->name('portal.roles');
     Route::get('/roles/edit/{role}', EditRole::class)->name('portal.roles.edit');
     Route::get('/roles/edit-user/{user}', EditUserRole::class)->name('portal.roles.edit-user-role');
+
+    Route::get('/wallets', Wallets::class);
+
 });
