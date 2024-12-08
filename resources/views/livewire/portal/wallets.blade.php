@@ -87,6 +87,7 @@
                 </div>
                 <div class="flex-auto p-4">
                   <form action="">
+                    @csrf
                     <div class="flex flex-wrap -mx-3 items-center justify-between">
                       <div class="max-w-full px-3 mb-6 md:mb-0 md:flex-none">
                         <div class="relative flex flex-row items-center flex-auto min-w-0 p-6 break-words bg-transparent border border-solid shadow-none rounded-xl border-slate-100 bg-clip-border">
@@ -235,7 +236,7 @@
           <div class="p-6 px-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
             <div class="flex flex-wrap -mx-3">
               <div class="max-w-full px-3 md:w-1/2 md:flex-none">
-                <h6 class="mb-0">My Subscription History</h6>
+                <h6 class="mb-0">My Order History</h6>
               </div>
             </div>
           </div>
