@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Payment extends Model
 {
@@ -18,4 +19,12 @@ class Payment extends Model
         'reference',
         'description',
     ];
+
+    /**
+     * The payments that belong to the user.
+     */
+    public function users(): BelongsTo
+    {
+        return $this->BelongsTo(User::class);
+    }
 }

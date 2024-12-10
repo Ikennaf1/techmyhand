@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
             // 'tutorial' => 'App\Models\Tutorial',
             // 'course' => 'App\Models\Course',
             // 'role' => 'App\Models\Role',
+            // 'wallet' => 'App\Models\Wallet',
         ]);
     }
 }
