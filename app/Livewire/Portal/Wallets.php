@@ -6,16 +6,21 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Validate;
 use App\Models\Wallet;
+use Paystack;
 
 class Wallets extends Component
 {
     public $balance = 0;
     public $user;
+    public $orderID;
+    public $reference;
 
     public function mount()
     {
-        $user = Auth::user();
-        $this->balance = $user->wallet->balance;
+        $this->user = Auth::user();
+        $this->balance = $this->user->wallet->balance;
+        $this->reference = Paystack::genTranxRef();
+        $this->orderID = $this->reference;
     }
 
     public function render()
