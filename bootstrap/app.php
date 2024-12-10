@@ -14,6 +14,10 @@ return Application::configure(basePath: dirname(__DIR__))
             Route::middleware('web')
                 ->prefix('portal')
                 ->group(base_path('routes/portal.php'));
+
+            Route::middleware('web')
+                ->prefix('payments')
+                ->group(base_path('routes/payments.php'));
         },
     )
     ->withMiddleware(function (Middleware $middleware) {

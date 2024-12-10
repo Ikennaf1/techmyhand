@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Livewire\Portal\Home;
 use App\Livewire\Portal\ManageUsers;
 use App\Livewire\Portal\ManageCourses;

@@ -86,12 +86,23 @@
                   </div>
                 </div>
                 <div class="flex-auto p-4">
-                  <form action="">
+                  <form action="" method="POST" action="{{ route('pay') }}" accept-charset="UTF-8" role="form">
                     @csrf
+                    <input type="hidden" name="email" value="otemuyiwa@gmail.com"> {{-- required --}}
+                    <input type="hidden" name="orderID" value="345">
+                    {{-- <input type="hidden" name="amount" value="800"> --}}
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="currency" value="NGN">
+                    {{-- <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" > <!-- For other necessary things you want to add to your payload. it is optional though --> --}}
+                    <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> <!-- required -->
+                    
+                    {{-- <input type="hidden" name="split_code" value="SPL_EgunGUnBeCareful"> <!-- to support transaction split. more details https://paystack.com/docs/payments/multi-split-payments/#using-transaction-splits-with-payments --> --}}
+                    {{-- <input type="hidden" name="split" value="{{ json_encode($split) }}"> <!-- to support dynamic transaction split. More details https://paystack.com/docs/payments/multi-split-payments/#dynamic-splits --> --}}
+                    
                     <div class="flex flex-wrap -mx-3 items-center justify-between">
                       <div class="max-w-full px-3 mb-6 md:mb-0 md:flex-none">
                         <div class="relative flex flex-row items-center flex-auto min-w-0 p-6 break-words bg-transparent border border-solid shadow-none rounded-xl border-slate-100 bg-clip-border">
-                          <input id="fund_input" class="mb-0 w-full text-2xl rounded-xl border-none" type="number" min="0">
+                          <input id="fund_input" name="amount" class="mb-0 w-full text-2xl rounded-xl border-none" type="number" min="0">
                         </div>
                       </div>
 
