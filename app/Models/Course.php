@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Course extends Model
 {
@@ -37,5 +38,13 @@ class Course extends Model
     {
         return $this->belongsToMany(Tutorial::class, 'course_tutorials')
             ->withTimestamps();
+    }
+
+    /**
+     * The products that belong to the course.
+     */
+    public function products(): HasOne
+    {
+        return $this->hasOne(Product::class);
     }
 }

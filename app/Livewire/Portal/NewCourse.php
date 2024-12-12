@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Validate;
+use App\Events\CourseCreated;
 
 class NewCourse extends Component
 {
@@ -29,6 +30,8 @@ class NewCourse extends Component
         ]);
 
         session()->flash('portal_status', 'Course successfully created.');
+
+        CourseCreated::dispatch($course);
  
         return $this->redirect(route('portal.courses.edit', $course->id));
     }

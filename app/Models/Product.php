@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
 {
@@ -17,4 +19,12 @@ class Product extends Model
         'price',
         'status',
     ];
+
+    /**
+     * The course that belong to the product.
+     */
+    public function course(): BelongsTo
+    {
+        return $this->BelongsTo(Course::class);
+    }
 }

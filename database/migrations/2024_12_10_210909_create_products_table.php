@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->integer('course_id');
-            $table->decimal('price', total: 8, places: 2);
+            $table->decimal('price', total: 8, places: 2)->default(0.00);
             $table->enum('status', ['pending', 'approved', 'suspended'])
                 ->default('pending');
             $table->integer('approved_by')->nullable();
