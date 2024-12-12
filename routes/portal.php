@@ -26,6 +26,8 @@ use App\Livewire\Portal\EditUserRole;
 
 use App\Livewire\Portal\Wallets;
 
+use App\Livewire\Portal\Products;
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -56,6 +58,8 @@ Route::middleware([
     Route::get('/roles/edit/{role}', EditRole::class)->name('portal.roles.edit');
     Route::get('/roles/edit-user/{user}', EditUserRole::class)->name('portal.roles.edit-user-role');
 
-    Route::get('/wallets', Wallets::class);
+    Route::get('/wallets', Wallets::class)->name('portal.wallets');
+
+    Route::get('/products', Products::class)->name('portal.products');
 
 });
