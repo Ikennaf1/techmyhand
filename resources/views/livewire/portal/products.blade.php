@@ -13,20 +13,17 @@
                                 <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Name</th>
                                 <th class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Approved by</th>
                                 <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Status</th>
-                                <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Suspend</th>
+                                <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Approve or Suspend</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($products as $product)
-                                    <tr>
+                                    <tr key="{{$product->id}}">
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <div class="flex px-2 py-1">
-                                            <div>
-                                                <img src="../assets/img/team-2.jpg" class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl" alt="user1" />
-                                            </div>
                                             <div class="flex flex-col justify-center">
                                                 <h6 class="mb-0 text-sm leading-normal">{{$product->course->title}}</h6>
-                                                <p class="mb-0 text-xs leading-tight text-slate-400">{{$product->price}}</p>
+                                                <p class="mb-0 text-xs leading-tight text-slate-400">&#8358;{{$product->price}}</p>
                                             </div>
                                             </div>
                                         </td>
@@ -34,10 +31,14 @@
                                             <p class="mb-0 text-xxs text-center font-bold leading-tight uppercase">{{$product->role}}</p>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <span class="text-xs font-semibold leading-tight text-slate-400">{{$product->status}}</span>
+                                            <span class="text-xs font-semibold leading-tight {{$product->status === 'suspended' ? 'text-red-400' : 'text-slate-400'}}">{{$product->status}}</span>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <a href="{{route('portal.roles.edit-user-role', $product->id)}}" class="text-xs font-semibold leading-tight text-red-400"> Suspend </a>
+                                            @if ($product->status === 'approved')
+                                                <div class="text-xs font-semibold leading-tight text-red-400"> <button wire:click="suspend({{$product->id}})" wire:confirm="Are you sure you want to suspend this product?">Suspend</button> </div>
+                                            @else
+                                                <div class="text-xs font-semibold leading-tight text-green-400"> <button wire:click="approve({{$product->id}})" wire:confirm="Are you sure you want to approve this product?">Approve</button> </div>
+                                            @endif
                                         </td>
                                     </tr>                          
                                 @endforeach

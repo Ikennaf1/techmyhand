@@ -12,7 +12,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Course;
 
-class CourseCreated
+class CourseDeleted
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
