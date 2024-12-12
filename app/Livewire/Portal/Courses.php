@@ -13,7 +13,7 @@ class Courses extends Component
 
     public function mount()
     {
-        $this->refreshCourses();
+        $this->refreshComponent();
     }
 
     public function deleteCourse($id)
@@ -24,7 +24,7 @@ class Courses extends Component
         
         $course->delete();
 
-        $this->refreshCourses();
+        $this->refreshComponent();
         
         session()->flash('portal_status', 'Course successfully deleted.');
 
@@ -38,7 +38,7 @@ class Courses extends Component
             ->title('Courses');
     }
 
-    private function refreshCourses()
+    private function refreshComponent()
     {
         $this->myCourses = Auth::user()
             ->courses()
