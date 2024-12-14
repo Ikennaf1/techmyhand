@@ -28,6 +28,8 @@ use App\Livewire\Portal\Wallets;
 
 use App\Livewire\Portal\Products;
 
+use App\Livewire\Portal\Cohorts;
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -62,4 +64,5 @@ Route::middleware([
 
     Route::get('/products', Products::class)->name('portal.products');
 
+    Route::get('/cohorts', Cohorts::class)->name('portal.cohorts');
 });

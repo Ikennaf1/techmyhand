@@ -12,7 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cohorts', function (Blueprint $table) {
-            $table->id();
+            // $table->id();
+            $table->uuid('id');
+            $table->string('title');
+            $table->integer('product_id');
+            $table->integer('user_id');
+            $table->enum('user_id');
+            $table->dateTime('enroll_start');
+            $table->dateTime('enroll_end');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date')->nullable();
             $table->timestamps();
         });
     }

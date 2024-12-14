@@ -25,9 +25,15 @@ class AppServiceProvider extends ServiceProvider
             // 'post' => 'App\Models\Post',
             // 'lesson' => 'App\Models\Lesson',
             // 'tutorial' => 'App\Models\Tutorial',
+            // 'tutorialLesson' => 'App\Models\TutorialLesson',
             // 'course' => 'App\Models\Course',
+            // 'courseTutorial' => 'App\Models\CourseTutorial',
             // 'role' => 'App\Models\Role',
+            // 'userRole' => 'App\Models\UserRole',
             // 'wallet' => 'App\Models\Wallet',
+            // 'cohort' => 'App\Models\Cohort',
+            // 'payment' => 'App\Models\Payment',
+            // 'product' => 'App\Models\Product',
         ]);
     }
 }
