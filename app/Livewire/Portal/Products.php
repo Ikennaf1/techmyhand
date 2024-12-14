@@ -16,6 +16,8 @@ class Products extends Component
 
     public function approve($id)
     {
+        $this->authorize('update', Product::class);
+
         $product = Product::find($id);
 
         if ($product !== null && $product->status !== 'approved') {
@@ -32,6 +34,8 @@ class Products extends Component
 
     public function suspend($id)
     {
+        $this->authorize('update', Product::class);
+
         $product = Product::find($id);
 
         if ($product !== null && $product->status === 'approved') {

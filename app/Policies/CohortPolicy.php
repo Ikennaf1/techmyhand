@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Product;
+use App\Models\Cohort;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class ProductPolicy
+class CohortPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class ProductPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Product $product): bool
+    public function view(User $user, Cohort $cohort): bool
     {
         //
     }
@@ -35,15 +35,15 @@ class ProductPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user): bool
+    public function update(User $user, Cohort $cohort): bool
     {
-        return $user->roles !== null;
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Product $product): bool
+    public function delete(User $user, Cohort $cohort): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class ProductPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Product $product): bool
+    public function restore(User $user, Cohort $cohort): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class ProductPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Product $product): bool
+    public function forceDelete(User $user, Cohort $cohort): bool
     {
         //
     }

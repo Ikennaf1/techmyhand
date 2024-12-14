@@ -41,6 +41,21 @@
                     </div>
                 </label>
             </form>
+
+            {{-- <livewire:portal.set-product-price :course="$course" :wire:key="now()->timestamp" /> --}}
+            <div>
+                <form wire:submit="setProductPrice" class="text-gray-800 rounded-xl border border-gray-300 p-4 shadow-lg w-full bg-white">
+                    <label class="flex flex-col gap-2 w-full">
+                        <div class="text-xs font-bold flex gap-8 items-center"><span>Set course price </span><span class="text-xs h-full" wire:loading><img width="32px" height="32px" class="object-fit" src="/imgs/spinner.gif"></span> @error('price') <span class="text-xs font-normal text-red-500 italic">- {{ $message }}</span> @enderror </div>
+                        <div class="w-full">
+                            <input wire:model="price" wire:dirty.class="border-yellow-500" class="title rounded-xl bg-gray-100 border border-gray-300 p-2 mb-4 outline-none w-full" type="number">
+                        </div>
+                        <button type="submit" class="text-white bg-black px-4 py-2 rounded-xl inline-block w-32 text-xs font-bold text-center">
+                            Set price
+                        </button>
+                    </label>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -53,7 +68,7 @@
             <div class="w-full lg:w-4/12 flex flex-col gap-8">
                 @if ($tutorials->count() > 0)
                     @foreach ($tutorials as $tutorial)
-                    <div key="{{$tutorial->id}}" class="bg-white shadow-lg p-4 flex items-center justify-between rounded-xl">
+                        <div wire:key="tut_{{$tutorial->id}}" class="bg-white shadow-lg p-4 flex items-center justify-between rounded-xl">
                             <div class="flex flex-col gap-2">
                                 <div class="text-xs font-bold">{{$tutorial->title}}</div>
                                 <div class="text-xs">{{$tutorial->description}}</div>
@@ -68,11 +83,12 @@
                     </div>
                 @endif
             </div>
+
             <form action="{{route('portal.courses.addCourseTutorial', $course->id)}}" method="POST" id="inputs_id" class="w-full lg:w-4/12 flex flex-col gap-8 bg-white shadow-xl rounded-xl p-4">
 
                 @if ($courseTutorials->count() > 0)
                     @foreach ($courseTutorials as $courseTutorial)
-                        <div id="input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}" class="flex justify-between items-center w-full">
+                        <div wire:key="course_tut_{{$$courseTutorial->id}}" id="input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}" class="flex justify-between items-center w-full">
                             <input onfocus="pasteID(this)" name="input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}" type="text" value="{{$courseTutorial->tutorial_uniqid}}" class="dynamic-input">
                             <div class="dynamic-input-ctrl">
                                 <div role="button" title="Add tutorial below" onclick="appendInputBelow('input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}')" class="w-8 h-8 flex items-center justify-center bg-blue-400 text-white rounded-xl">

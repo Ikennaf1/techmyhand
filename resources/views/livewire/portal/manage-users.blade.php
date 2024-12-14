@@ -18,7 +18,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($adminUsers as $adminUser)
-                                    <tr>
+                                    <tr :key="admin_user_{{$adminUser->id}}">
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <div class="flex px-2 py-1">
                                             <div>
@@ -68,7 +68,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($users as $user)
-                                    <tr>
+                                    <tr :key="user_{{$user->id}}">
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <div class="flex px-2 py-1">
                                                 <div>

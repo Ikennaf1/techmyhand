@@ -19,7 +19,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($myTutorials as $tutorial)
-                                    <tr wire:key="{{$tutorial->id}}">
+                                    <tr :key="tut_{{$tutorial->id}}">
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <div class="flex px-2 py-1">
                                                 <div class="flex flex-col justify-center">

@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\CourseTutorial;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
 
 class EditCourse extends Component
 {
@@ -26,6 +27,10 @@ class EditCourse extends Component
     
     public $keywords;
 
+    public $product;
+
+    public $price;
+
     public function mount($course)
     {
         $this->course = Course::findOrFail($course);
@@ -36,6 +41,8 @@ class EditCourse extends Component
         $this->keywords = $this->course->keywords;
         $this->courseTutorials = CourseTutorial::where('course_id', $course)
             ->get();
+        $this->product = Product::where('course_id', $this->course->id)->first();
+        $this->price = $this->product->price;
     }
 
     public function update()
@@ -52,8 +59,23 @@ class EditCourse extends Component
         session()->flash('portal_status', 'Course updated successfully.');
     }
 
+    public function setProductPrice()
+    {
+        $this->authorize('update', Product::class);
+
+        $this->validate();
+
+        $this->product->update([
+            'price' => $this->price
+        ]);
+
+        session()->flash('portal_status', 'Course price set successfully.');
+    }
+
     public function updated($name, $value) 
     {
+        $this->authorize('update', $this->course);
+
         $this->course->update([
             $name => $value,
         ]);

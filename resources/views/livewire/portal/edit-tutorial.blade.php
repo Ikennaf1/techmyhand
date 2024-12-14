@@ -53,7 +53,7 @@
             <div class="w-full lg:w-4/12 flex flex-col gap-8">
                 @if ($lessons->count() > 0)
                     @foreach ($lessons as $lesson)
-                    <div key="{{$lesson->id}}" class="bg-white shadow-lg p-4 flex items-center justify-between rounded-xl">
+                        <div :key="lesson_{{$lesson->id}}" class="bg-white shadow-lg p-4 flex items-center justify-between rounded-xl">
                             <div class="flex flex-col gap-2">
                                 <div class="text-xs font-bold">{{$lesson->title}}</div>
                                 <div class="text-xs">{{$lesson->description}}</div>
@@ -72,7 +72,7 @@
 
                 @if ($tutorialLessons->count() > 0)
                     @foreach ($tutorialLessons as $tutorialLesson)
-                        <div id="input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}" class="flex justify-between items-center w-full">
+                        <div :key="tut_les_{{$tutorialLesson->id}}" id="input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}" class="flex justify-between items-center w-full">
                             <input onfocus="pasteID(this)" name="input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}" type="text" value="{{$tutorialLesson->lesson_uniqid}}" class="dynamic-input">
                             <div class="dynamic-input-ctrl">
                                 <div role="button" title="Add lesson below" onclick="appendInputBelow('input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}')" class="w-8 h-8 flex items-center justify-center bg-blue-400 text-white rounded-xl">
