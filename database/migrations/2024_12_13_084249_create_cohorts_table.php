@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('title');
             $table->integer('product_id');
             $table->integer('user_id');
-            $table->enum('user_id');
             $table->dateTime('enroll_start');
             $table->dateTime('enroll_end');
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
+            $table->enum('pioneer', ['yes', 'no'])->default('no');
             $table->timestamps();
         });
     }
