@@ -116,4 +116,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Payment::class);
     }
+
+    /**
+     * The cohorts that belong to the user.
+     */
+    public function cohorts(): HasMany
+    {
+        return $this->hasMany(Cohort::class);
+    }
 }

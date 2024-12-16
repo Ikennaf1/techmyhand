@@ -32,4 +32,12 @@ class Cohort extends Model
     {
         return $this->BelongsTo(Product::class);
     }
+
+    /**
+     * The user that owns to the cohort.
+     */
+    public function user(): BelongsTo
+    {
+        return $this->BelongsTo(User::class);
+    }
 }
