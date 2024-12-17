@@ -34,3 +34,15 @@ a.side-nav-link {
 .dynamic-input-ctrl {
     @apply w-2/12 flex items-center justify-around;
 }
+
+.course-approved {
+    @apply text-green-400;
+}
+
+.course-pending {
+    @apply text-slate-400;
+}
+
+.course-suspended {
+    @apply text-red-400;
+}

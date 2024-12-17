@@ -15,6 +15,7 @@
                                 <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Last Updated</th>
                                 <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Edit course</th>
                                 <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Delete course</th>
+                                <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Create cohort</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -24,7 +25,9 @@
                                             <div class="flex px-2 py-1">
                                                 <div class="flex flex-col justify-center">
                                                     <h6 class="mb-0 text-sm leading-normal">{{$course->title}}</h6>
-                                                    <p class="mb-0 text-xs leading-tight text-slate-400">Created {{$course->created_at->diffForHumans()}}</p>
+                                                    <p class="mb-0 text-xs leading-tight text-slate-400">
+                                                        Created {{$course->created_at->diffForHumans()}} <span class="course-{{$course->status}}">({{$course->status}})</span>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </td>
@@ -35,7 +38,12 @@
                                             <span class="text-xs font-semibold leading-tight text-slate-400"><a href="{{route('portal.courses.edit', $course->id)}}">Edit</a></span>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <a role="button" wire:click="deleteCourse({{$course->id}})" wire:confirm="Are you sure you want to delete this course? This action is not reversible" class="text-xs font-semibold leading-tight text-slate-400"> Delete </a>
+                                            <a role="button" wire:click="deleteCourse({{$course->id}})" wire:confirm="Are you sure you want to delete this course? This action is not reversible" class="text-xs font-semibold leading-tight text-red-400"> Delete </a>
+                                        </td>
+                                        <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                            @if ($course->is_approved)
+                                                <a href="{{route('portal.cohorts.new', $course->id)}}" class="text-xs font-semibold leading-tight text-slate-400"> Create cohort </a>
+                                            @endif
                                         </td>
                                     </tr>                          
                                 @endforeach

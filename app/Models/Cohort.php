@@ -18,6 +18,7 @@ class Cohort extends Model
         'title',
         'product_id',
         'user_id',
+        'discount',
         'enroll_start',
         'enroll_end',
         'start_date',

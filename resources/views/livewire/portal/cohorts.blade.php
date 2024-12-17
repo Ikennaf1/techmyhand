@@ -4,7 +4,7 @@
             <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent flex items-start gap-4">
                     <h6>Cohorts I created</h6>
-                    <span class="text-xs py-2 px-4 bg-gray-100 hover:bg-gray-200 text-black rounded-xl"><a href="{{route('portal.courses.new')}}">+ Add new</a></span>
+                    {{-- <span class="text-xs py-2 px-4 bg-gray-100 hover:bg-gray-200 text-black rounded-xl"><a href="{{route('portal.courses.new')}}">+ Add new</a></span> --}}
                 </div>
                 <div class="flex-auto px-0 pt-0 pb-2">
                     <div class="p-0 overflow-x-auto">
@@ -21,7 +21,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($myCohorts as $cohort)
+                                @foreach ($myCreatedCohorts as $cohort)
                                     <tr wire:key="my_cohort_{{$cohort->id}}">
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <div class="flex px-2 py-1">

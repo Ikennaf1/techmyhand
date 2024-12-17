@@ -31,7 +31,7 @@
                                             <p class="mb-0 text-xxs text-center font-bold leading-tight uppercase">{{$product->role}}</p>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <span class="text-xs font-semibold leading-tight {{$product->status === 'suspended' ? 'text-red-400' : 'text-slate-400'}}">{{$product->status}}</span>
+                                            <span class="text-xs font-semibold leading-tight course-{{$product->status}}">{{$product->status}}</span>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             @if ($product->status === 'approved')

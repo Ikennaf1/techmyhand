@@ -29,6 +29,7 @@ use App\Livewire\Portal\Wallets;
 use App\Livewire\Portal\Products;
 
 use App\Livewire\Portal\Cohorts;
+use App\Livewire\Portal\NewCohort;
 
 Route::middleware([
     'auth:sanctum',
@@ -65,4 +66,5 @@ Route::middleware([
     Route::get('/products', Products::class)->name('portal.products');
 
     Route::get('/cohorts', Cohorts::class)->name('portal.cohorts');
+    Route::get('/cohorts/new/{course}', NewCohort::class)->name('portal.cohorts.new');
 });

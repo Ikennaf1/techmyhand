@@ -26,7 +26,7 @@ class Product extends Model
      */
     public function course(): BelongsTo
     {
-        return $this->BelongsTo(Course::class);
+        return $this->belongsTo(Course::class);
     }
 
     /**
