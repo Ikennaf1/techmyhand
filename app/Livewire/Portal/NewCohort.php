@@ -48,7 +48,7 @@ class NewCohort extends Component
             'enroll_end' => $this->enroll_end,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
-            'pioneer' => $this->pioneer ? 'yes' : 'no'
+            'pioneer' => $this->pioneer === 'yes' ? 'yes' : 'no'
         ]);
 
         session()->flash('portal_status', 'Cohort can not be created until course is created and approved.');
@@ -78,45 +78,45 @@ class NewCohort extends Component
     private function validateEnrollments()
     {
         if (empty($this->enroll_start)) {
-            $this->enroll_start = Carbon::create(Carbon::now());
+            $this->enroll_start = Carbon::now();
         } else {
             $this->enroll_start = Carbon::create($this->enroll_start);
         }
 
         if (empty($this->enroll_end)) {
-            $this->enroll_end = Carbon::create(Carbon::now())->addWeeks(2);
+            $this->enroll_end = Carbon::now()->addWeeks(2);
         } else {
             $this->enroll_end = Carbon::create($this->enroll_end);
         }
 
         if ($this->enroll_start->greaterThan($this->enroll_end)) {
-            $this->enroll_start = Carbon::create(Carbon::now());
-            $this->enroll_end = Carbon::create(Carbon::now())->addWeeks(2);
+            $this->enroll_start = Carbon::now();
+            $this->enroll_end = Carbon::now()->addWeeks(2);
         }
     }
 
     private function validateCourseDuration()
     {
         if (empty($this->start_date)) {
-            $this->start_date = Carbon::create(Carbon::now())->addWeeks(2);
+            $this->start_date = Carbon::now()->addWeeks(2);
         } else {
             $this->start_date = Carbon::create($this->start_date);
         }
 
         if (empty($this->end_date)) {
-            $this->end_date = Carbon::create(Carbon::now())->addMonths(2);
+            $this->end_date = Carbon::now()->addWeeks(10);
         } else {
             $this->end_date = Carbon::create($this->end_date);
         }
 
         if ($this->start_date->lessThan($this->enroll_end)) {
             $this->start_date = $this->enroll_end;
-            $this->end_date = $this->enroll_end->addMonths(2);
+            $this->end_date = $this->enroll_end->addWeeks(10);
         }
 
         if ($this->start_date->greaterThan($this->end_date)) {
-            $this->start_date = Carbon::create(Carbon::now())->addWeeks(2);
-            $this->end_date = Carbon::create(Carbon::now())->addMonths(2);
+            $this->start_date = Carbon::now()->addWeeks(2);
+            $this->end_date = Carbon::now()->addWeeks(10);
         }
     }
 
