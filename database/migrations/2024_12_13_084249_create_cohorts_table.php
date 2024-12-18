@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cohorts', function (Blueprint $table) {
             $table->uuid('id');
-            $table->string('title');
+            $table->string('title')->unique();
             $table->integer('product_id');
             $table->bigInteger('user_id');
             $table->tinyInteger('discount')->default(0);

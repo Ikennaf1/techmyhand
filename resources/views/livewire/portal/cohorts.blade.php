@@ -32,16 +32,16 @@
                                             </div>
                                         </td>
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <p class="mb-0 text-xxs font-bold leading-tight uppercase">{{$cohort->enroll_start->toDateString()}}</p>
+                                            <p class="mb-0 text-xxs font-bold leading-tight uppercase">{{$cohort->enroll_start->diffForHumans()}}</p>
                                         </td>
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <p class="mb-0 text-xxs font-bold leading-tight uppercase">{{$cohort->enroll_end->toDateString()}}</p>
+                                            <p class="mb-0 text-xxs font-bold leading-tight uppercase">{{$cohort->enroll_end}}</p>
                                         </td>
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <p class="mb-0 text-xxs font-bold leading-tight uppercase">{{$cohort->start_date->toDateString()}}</p>
+                                            <p class="mb-0 text-xxs font-bold leading-tight uppercase">{{$cohort->start_date}}</p>
                                         </td>
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <p class="mb-0 text-xxs font-bold leading-tight uppercase">{{$cohort->end_date->toDateString()}}</p>
+                                            <p class="mb-0 text-xxs font-bold leading-tight uppercase">{{$cohort->end_date}}</p>
                                         </td>
                                         <td class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <span class="text-xs font-semibold leading-tight text-slate-400"><a href="{{--route('portal.cohorts.edit', $cohort->id)--}}">Edit</a></span>

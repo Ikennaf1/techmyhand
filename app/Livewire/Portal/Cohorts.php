@@ -25,6 +25,11 @@ class Cohorts extends Component
         $this->freshCohorts = Cohort::whereDate('enroll_end', '>', Carbon::now())->get();
     }
 
+    public function delete()
+    {
+        // 
+    }
+
     public function render()
     {
         return view('livewire.portal.cohorts')
