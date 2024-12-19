@@ -30,6 +30,7 @@ use App\Livewire\Portal\Products;
 
 use App\Livewire\Portal\Cohorts;
 use App\Livewire\Portal\NewCohort;
+use App\Livewire\Portal\EditCohort;
 
 Route::middleware([
     'auth:sanctum',
@@ -67,4 +68,5 @@ Route::middleware([
 
     Route::get('/cohorts', Cohorts::class)->name('portal.cohorts');
     Route::get('/cohorts/new/{course}', NewCohort::class)->name('portal.cohorts.new');
+    Route::get('/cohorts/edit/{cohort}', EditCohort::class)->name('portal.cohorts.edit');
 });

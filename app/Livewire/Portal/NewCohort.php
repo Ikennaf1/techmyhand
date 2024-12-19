@@ -16,15 +16,22 @@ class NewCohort extends Component
     #[Validate('required|min:5|max:175')]
     public $title;
 
-    #[Validate('required|min:5|max:175')]
+    #[Validate('required')]
     public $discount = 0;
-    public $discount_min = 0;
-    public $discount_max = 60;
+
+    #[Validate('required')]
     public $enroll_start;
+
+    #[Validate('required')]
     public $enroll_end;
+
+    #[Validate('required')]
     public $start_date;
+
     public $end_date;
     public $pioneer = 'no';
+    public $discount_min = 0;
+    public $discount_max = 60;
 
     public function mount($course)
     {

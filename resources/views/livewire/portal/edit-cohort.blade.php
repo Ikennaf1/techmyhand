@@ -5,13 +5,13 @@
           <div class="flex flex-col w-full max-w-full px-3 mx-auto md:flex-0 shrink-0 md:w-6/12 lg:w-5/12 xl:w-4/12">
             <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border">
               <div class="p-6 pb-0 mb-0 bg-transparent border-b-0 rounded-t-2xl">
-                <h3 class="relative z-10 font-bold text-transparent bg-gradient-to-tl from-gray-600 to-gray-400 bg-clip-text">Create a new cohort</h3>
+                <h3 class="relative z-10 font-bold text-transparent bg-gradient-to-tl from-gray-600 to-gray-400 bg-clip-text">Edit cohort</h3>
               </div>
               <div class="flex-auto p-6">
-                <form role="form" wire:submit="create" wire:loading.attr="disabled">
+                <form role="form" wire:submit="update" wire:loading.attr="disabled">
                   <label class="mb-2 ml-1 font-bold text-xs text-slate-700">Title @error('title') <span class="text-xs font-normal text-red-500 italic">- {{ $message }}</span> @enderror </label>
                     <div class="mb-4">
-                        <input type="text" wire:model="title" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Ex. {{$course->title}} - Cohort 1" aria-label="Title" aria-describedby="title-addon" />
+                        <input type="text" wire:model="title" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" aria-label="Title" aria-describedby="title-addon" />
                     </div>
 
                   <label class="mb-2 ml-1 font-bold text-xs text-slate-700">Enrollment start date @error('enroll_start') <span class="text-xs font-normal text-red-500 italic">- {{ $message }}</span> @enderror </label>
@@ -41,7 +41,7 @@
 
                   <label class="mb-2 ml-1 font-bold text-xs text-slate-700">Pioneer cohort? @error('pioneer') <span class="text-xs font-normal text-red-500 italic">- {{ $message }}</span> @enderror </label>
                     <div class="mb-4">
-                        <input type="checkbox" wire:model="pioneer" class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-8 h-8 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="" aria-label="Discount" aria-describedby="title-addon" />
+                        <input type="checkbox" wire:model="pioneer" {{$pioneer === 'yes' ? 'checked' : ''}} class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-8 h-8 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="" aria-label="Discount" aria-describedby="title-addon" />
                     </div>
                 
                   <div class="text-center">

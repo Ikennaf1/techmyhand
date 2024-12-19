@@ -44,7 +44,7 @@
                                             <p class="mb-0 text-xxs font-bold leading-tight uppercase">{{$cohort->end_date->toFormattedDayDateString()}}</p>
                                         </td>
                                         <td class="p-2 text-left align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <span class="text-xs font-semibold leading-tight text-slate-400"><a href="{{--route('portal.cohorts.edit', $cohort->id)--}}">Edit</a></span>
+                                            <span class="text-xs font-semibold leading-tight text-slate-400"><a href="{{route('portal.cohorts.edit', $cohort->id)}}">Edit</a></span>
                                         </td>
                                         <td class="p-2 text-left align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                             <a role="button" wire:click="deleteCourse({{$cohort->id}})" wire:confirm="Are you sure you want to delete this course? This action is not reversible" class="text-xs font-semibold leading-tight text-slate-400"> Delete </a>
