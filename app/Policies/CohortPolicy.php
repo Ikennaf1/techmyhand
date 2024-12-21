@@ -29,7 +29,7 @@ class CohortPolicy
      */
     public function create(User $user): bool
     {
-        //
+        // return $user->id
     }
 
     /**
@@ -37,7 +37,7 @@ class CohortPolicy
      */
     public function update(User $user, Cohort $cohort): bool
     {
-        //
+        return $user->id === $cohort->user_id;
     }
 
     /**
