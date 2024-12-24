@@ -4,10 +4,13 @@ namespace App\Livewire\Portal;
 
 use Livewire\Component;
 use App\Models\Cohort;
+use App\Models\Course;
 use Livewire\Attributes\Validate;
+use Carbon\Carbon;
 
 class EditCohort extends Component
 {
+    public $course;
     public $cohort;
 
     #[Validate('required|min:5|max:175')]
@@ -31,6 +34,7 @@ class EditCohort extends Component
     public function mount($cohort)
     {
         $this->cohort = Cohort::find($cohort);
+        $this->course = $this->cohort->product->course;
         $this->title = $this->cohort->title;
         $this->enroll_start = $this->cohort->enroll_start->toDateString();
         $this->enroll_end = $this->cohort->enroll_end->toDateString();
@@ -42,16 +46,16 @@ class EditCohort extends Component
 
     public function update()
     {
-        $this->authorize('update', Cohort::class);
+        $this->authorize('update', $this->cohort);
 
         $this->validateProduct();
 
         $this->validateInputs();
 
-        $cohort = Cohort::update([
+        $cohort = $this->cohort->update([
             'title' => $this->title,
-            'product_id' => $this->course->product->id,
-            'user_id' => Auth::user()->id,
+            // 'product_id' => $this->cohort->product_id,
+            // 'user_id' => Auth::user()->id,
             'discount' => $this->discount,
             'enroll_start' => $this->enroll_start,
             'enroll_end' => $this->enroll_end,
@@ -66,5 +70,77 @@ class EditCohort extends Component
         return view('livewire.portal.edit-cohort')
             ->layout('components.layouts.portal')
             ->title('Edit cohort');
+    }
+
+    private function validateDiscount()
+    {
+        if (empty($this->discount)) return 0;
+
+        if ($this->discount < $this->discount_min 
+            || $this->discount > $this->discount_max) {
+            return 0;
+        }
+
+        return (int) $this->discount;
+    }
+
+    private function validateEnrollments()
+    {
+        if (empty($this->enroll_start)) {
+            $this->enroll_start = Carbon::now();
+        } else {
+            $this->enroll_start = Carbon::create($this->enroll_start);
+        }
+
+        if (empty($this->enroll_end)) {
+            $this->enroll_end = Carbon::now()->addWeeks(2);
+        } else {
+            $this->enroll_end = Carbon::create($this->enroll_end);
+        }
+
+        if ($this->enroll_start->greaterThan($this->enroll_end)) {
+            $this->enroll_start = Carbon::now();
+            $this->enroll_end = Carbon::now()->addWeeks(2);
+        }
+    }
+
+    private function validateCourseDuration()
+    {
+        if (empty($this->start_date)) {
+            $this->start_date = Carbon::now()->addWeeks(2);
+        } else {
+            $this->start_date = Carbon::create($this->start_date);
+        }
+
+        if (empty($this->end_date)) {
+            $this->end_date = Carbon::now()->addWeeks(10);
+        } else {
+            $this->end_date = Carbon::create($this->end_date);
+        }
+
+        if ($this->start_date->lessThan($this->enroll_end)) {
+            $this->start_date = $this->enroll_end;
+            $this->end_date = $this->enroll_end->addWeeks(10);
+        }
+
+        if ($this->start_date->greaterThan($this->end_date)) {
+            $this->start_date = Carbon::now()->addWeeks(2);
+            $this->end_date = Carbon::now()->addWeeks(10);
+        }
+    }
+
+    private function validateInputs()
+    {
+        $this->validateDiscount();
+        $this->validateEnrollments();
+        $this->validateCourseDuration();
+    }
+
+    private function validateProduct()
+    {
+        if ($this->course === null || !$this->course->is_approved) {
+            session()->flash('portal_status', 'Cohort can not be created until course is created and approved.');
+            return redirect(route('portal.courses.new'));
+        }
     }
 }
