@@ -4,7 +4,6 @@ namespace App\Livewire\Portal;
 
 use Livewire\Component;
 use App\Models\Cohort;
-use App\Models\Course;
 use Livewire\Attributes\Validate;
 use Carbon\Carbon;
 
@@ -61,7 +60,7 @@ class EditCohort extends Component
             'enroll_end' => $this->enroll_end,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
-            'pioneer' => $this->pioneer === 'yes' ? 'yes' : 'no'
+            'pioneer' => !empty($this->pioneer) ? 'yes' : 'no'
         ]);
     }
 

@@ -55,7 +55,7 @@ class NewCohort extends Component
             'enroll_end' => $this->enroll_end,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
-            'pioneer' => $this->pioneer === 'yes' ? 'yes' : 'no'
+            'pioneer' => !empty($this->pioneer) ? 'yes' : 'no'
         ]);
 
         session()->flash('portal_status', 'Cohort can not be created until course is created and approved.');
