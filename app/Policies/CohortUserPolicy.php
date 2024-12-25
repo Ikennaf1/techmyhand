@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Cohort;
+use App\Models\CohortUser;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class CohortPolicy
+class CohortUserPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class CohortPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Cohort $cohort): bool
+    public function view(User $user, CohortUser $cohortUser): bool
     {
         //
     }
@@ -29,29 +29,29 @@ class CohortPolicy
      */
     public function create(User $user): bool
     {
-        return $user->roles !== null;
+        //
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Cohort $cohort): bool
+    public function update(User $user, CohortUser $cohortUser): bool
     {
-        return $user->id === $cohort->user_id;
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Cohort $cohort): bool
+    public function delete(User $user, CohortUser $cohortUser): bool
     {
-        return $user->id === $cohort->user_id;
+        //
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Cohort $cohort): bool
+    public function restore(User $user, CohortUser $cohortUser): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class CohortPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Cohort $cohort): bool
+    public function forceDelete(User $user, CohortUser $cohortUser): bool
     {
         //
     }

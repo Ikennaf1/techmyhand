@@ -6,14 +6,17 @@ use Livewire\Component;
 
 class SideNav extends Component
 {
-    public function render()
+    public $portalName;
+
+    public function mont()
     {
         $portalPath = request()->getRequestUri();
         $portalName = explode('/', request()->getRequestUri());
-        $portalName = $portalName[count($portalName) - 1];
+        $this->portalName = $portalName[count($portalName) - 1];
+    }
 
-        return view('livewire.portal.side-nav', [
-            'portalName' => $portalName
-        ]);
+    public function render()
+    {
+        return view('livewire.portal.side-nav');
     }
 }

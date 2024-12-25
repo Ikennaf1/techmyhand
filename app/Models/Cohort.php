@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Carbon\Carbon;
 
 class Cohort extends Model
@@ -80,5 +81,14 @@ class Cohort extends Model
     public function user(): BelongsTo
     {
         return $this->BelongsTo(User::class);
+    }
+
+    /**
+     * The users that subscribe to the cohort.
+     */
+    public function joinedUsers(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'cohort_users')
+            ->withTimestamps();
     }
 }

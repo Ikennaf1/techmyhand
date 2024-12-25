@@ -88,7 +88,7 @@
 
                 @if ($courseTutorials->count() > 0)
                     @foreach ($courseTutorials as $courseTutorial)
-                        <div wire:key="course_tut_{{$$courseTutorial->id}}" id="input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}" class="flex justify-between items-center w-full">
+                        <div wire:key="course_tut_{{$courseTutorial->id}}" id="input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}" class="flex justify-between items-center w-full">
                             <input onfocus="pasteID(this)" name="input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}" type="text" value="{{$courseTutorial->tutorial_uniqid}}" class="dynamic-input">
                             <div class="dynamic-input-ctrl">
                                 <div role="button" title="Add tutorial below" onclick="appendInputBelow('input_{{str_replace('.', '', $courseTutorial->tutorial_uniqid)}}')" class="w-8 h-8 flex items-center justify-center bg-blue-400 text-white rounded-xl">

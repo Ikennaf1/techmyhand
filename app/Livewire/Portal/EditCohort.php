@@ -53,8 +53,6 @@ class EditCohort extends Component
 
         $cohort = $this->cohort->update([
             'title' => $this->title,
-            // 'product_id' => $this->cohort->product_id,
-            // 'user_id' => Auth::user()->id,
             'discount' => $this->discount,
             'enroll_start' => $this->enroll_start,
             'enroll_end' => $this->enroll_end,

@@ -124,4 +124,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Cohort::class);
     }
+
+    /**
+     * The cohort that the user is part of.
+     */
+    public function joinedCohorts(): BelongsToMany
+    {
+        return $this->belongsToMany(Cohort::class, 'cohort_users')
+            ->withTimestamps();
+    }
 }
