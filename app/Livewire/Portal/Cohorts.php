@@ -22,7 +22,7 @@ class Cohorts extends Component
         $this->myCreatedCohorts = $this->user->cohorts;
         $this->joinedCohorts = $this->user->joinedCohorts;
         $this->myCourses = $this->user->courses;
-        $this->freshCohorts = Cohort::whereDate('enroll_end', '>', Carbon::now())->get();
+        $this->freshCohorts = $this->getFreshCohorts();
     }
 
     public function delete($id)
@@ -45,5 +45,28 @@ class Cohorts extends Component
         return view('livewire.portal.cohorts')
             ->layout('components.layouts.portal')
             ->title('Cohorts');
+    }
+
+    /**
+     * Returns cohorts that a user can join
+     * Removes cohorts created by the user,
+     * and also cohorts the user already joined
+     */
+    private function getFreshCohorts()
+    {
+        $joinedCohortIDs = [];
+
+        foreach ($this->joinedCohorts as $joined) {
+            $joinedCohortIDs[] = $joined->id;
+        }
+
+        $tempCohorts = Cohort::whereDate('enroll_end', '>', Carbon::now())->get()
+            ->where('user_id', '!=', $this->user->id);
+
+        $cohorts = $tempCohorts->reject(function ($cohort) use ($joinedCohortIDs) {
+            return in_array($cohort->id, $joinedCohortIDs);
+        });
+
+        return $cohorts;
     }
 }
