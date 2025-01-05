@@ -6,6 +6,7 @@ use App\Events\CourseCreated;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Models\Product;
+use Illuminate\Support\Str;
 
 class CreateProductFromNewCourse
 {
@@ -25,6 +26,7 @@ class CreateProductFromNewCourse
         $course = $event->course;
 
         Product::create([
+            'id'        => Str::uuid(),
             'course_id' => $course->id
         ]);
     }

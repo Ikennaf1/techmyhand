@@ -7,6 +7,7 @@ use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Validate;
 use App\Events\CourseCreated;
+use Illuminate\Support\Str;
 
 class NewCourse extends Component
 {
@@ -23,10 +24,11 @@ class NewCourse extends Component
         $this->validate();
 
         $course = Course::create([
+            'id'                => Str::uuid(),
             'title'             => $this->title,
             'user_id'           => Auth::user()->id,
             'description'       => $this->description,
-            'uniqid'            => uniqid('', true)
+            // 'uniqid'            => uniqid('', true)
         ]);
 
         session()->flash('portal_status', 'Course successfully created.');

@@ -40,11 +40,11 @@
               </a>
             </li>
   
-            {{-- <li class="mt-0.5 w-full">
-                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../pages/tables.html">
+            <li class="mt-0.5 w-full">
+                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors {{$portalName === 'my-courses' ? 'side-nav-link' : ''}}" href="{{route('portal.courses.my-courses')}}">
                     <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                         <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <title>spaceship</title>
+                        <title>My courses</title>
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                             <g transform="translate(-1720.000000, -592.000000)" fill="#FFFFFF" fill-rule="nonzero">
                             <g transform="translate(1716.000000, 291.000000)">
@@ -62,9 +62,9 @@
                         </g>
                         </svg>
                     </div>
-                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Explore</span>
+                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">My courses</span>
                 </a>
-            </li> --}}
+            </li>
   
             {{-- Admin Pages --}}
             <li class="w-full mt-4">
@@ -133,7 +133,7 @@
                     <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
                   </svg>
                 </div>
-                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">My Cohorts</span>
+                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Manage Cohorts</span>
               </a>
             </li>
 

@@ -133,4 +133,13 @@ class User extends Authenticatable
         return $this->belongsToMany(Cohort::class, 'cohort_users')
             ->withTimestamps();
     }
+
+    /**
+     * The course that the user is subscribed to.
+     */
+    public function subscribedProducts(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class, 'product_users')
+            ->withTimestamps();
+    }
 }

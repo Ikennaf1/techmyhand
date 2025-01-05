@@ -5,7 +5,8 @@ namespace App\Livewire\Portal;
 use Livewire\Component;
 use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\Validate; 
+use Livewire\Attributes\Validate;
+use Illuminate\Support\Str;
 
 class NewLesson extends Component
 {
@@ -22,10 +23,10 @@ class NewLesson extends Component
         $this->validate();
 
         $lesson = Lesson::create([
+            'id'                => Str::uuid(),
             'title'             => $this->title,
             'user_id'           => Auth::user()->id,
             'description'       => $this->description,
-            'uniqid'            => uniqid('', true)
         ]);
 
         session()->flash('portal_status', 'Lesson successfully created.');

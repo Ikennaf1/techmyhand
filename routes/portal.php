@@ -18,6 +18,7 @@ use App\Http\Controllers\TutorialLessonController;
 use App\Livewire\Portal\Courses;
 use App\Livewire\Portal\NewCourse;
 use App\Livewire\Portal\EditCourse;
+use App\Livewire\Portal\MyCourses;
 use App\Http\Controllers\CourseTutorialController;
 
 use App\Livewire\Portal\Roles;
@@ -57,6 +58,7 @@ Route::middleware([
     Route::get('/courses/edit/{course}', EditCourse::class)->name('portal.courses.edit');
     Route::post('/courses/edit/addCourseTutorial/{course}', [CourseTutorialController::class, 'store'])
         ->name('portal.courses.addCourseTutorial');
+    Route::get('/courses/my-courses', MyCourses::class)->name('portal.courses.my-courses');
 
     Route::get('/roles', Roles::class)->name('portal.roles');
     Route::get('/roles/edit/{role}', EditRole::class)->name('portal.roles.edit');

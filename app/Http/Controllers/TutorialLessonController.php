@@ -46,7 +46,7 @@ class TutorialLessonController extends Controller
             TutorialLesson::create([
                 'user_id' => Auth::user()->id,
                 'tutorial_id' => $request->tutorial,
-                'lesson_uniqid' => $value
+                'lesson_id' => $value
             ]);
         }
 

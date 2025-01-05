@@ -23,7 +23,7 @@
                                             <div class="flex px-2 py-1">
                                             <div class="flex flex-col justify-center">
                                                 <h6 class="mb-0 text-sm leading-normal">{{$product->course->title}}</h6>
-                                                <p class="mb-0 text-xs leading-tight text-slate-400">&#8358;{{$product->price}}</p>
+                                                <p class="mb-0 text-xs leading-tight text-slate-400">&#8358;{{number_format($product->price)}}</p>
                                             </div>
                                             </div>
                                         </td>

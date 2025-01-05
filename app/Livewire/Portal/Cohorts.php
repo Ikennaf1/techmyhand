@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\Cohort;
-use App\Models\CohortUser;
+use App\Events\CohortDeleted;
 
 class Cohorts extends Component
 {
@@ -37,7 +37,7 @@ class Cohorts extends Component
         
         session()->flash('portal_status', 'Cohort successfully deleted.');
 
-        // CohortDeleted::dispatch($cohort);
+        CohortDeleted::dispatch($cohort);
     }
 
     public function render()
@@ -50,7 +50,7 @@ class Cohorts extends Component
     /**
      * Returns cohorts that a user can join
      * Removes cohorts created by the user,
-     * and also cohorts the user already joined
+     * and also all cohorts the user already joined
      */
     private function getFreshCohorts()
     {
@@ -60,10 +60,10 @@ class Cohorts extends Component
             $joinedCohortIDs[] = $joined->id;
         }
 
-        $tempCohorts = Cohort::whereDate('enroll_end', '>', Carbon::now())->get()
+        $temp = Cohort::whereDate('enroll_end', '>', Carbon::now())->get()
             ->where('user_id', '!=', $this->user->id);
 
-        $cohorts = $tempCohorts->reject(function ($cohort) use ($joinedCohortIDs) {
+        $cohorts = $temp->reject(function ($cohort) use ($joinedCohortIDs) {
             return in_array($cohort->id, $joinedCohortIDs);
         });
 

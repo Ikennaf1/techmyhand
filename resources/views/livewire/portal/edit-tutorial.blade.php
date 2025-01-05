@@ -57,7 +57,7 @@
                             <div class="flex flex-col gap-2">
                                 <div class="text-xs font-bold">{{$lesson->title}}</div>
                                 <div class="text-xs">{{$lesson->description}}</div>
-                                <div id="uniq_{{$lesson->id}}" class="text-xs text-black">{{$lesson->uniqid}}</div>
+                                <div id="uniq_{{$lesson->id}}" class="text-xs text-black">{{$lesson->id}}</div>
                             </div>
                             <div onclick="copyID(`uniq_{{$lesson->id}}`, this)" class="bg-black text-white text-xs inline-block px-2 py-1 rounded-xl cursor-pointer">Copy ID</div>
                         </div>
@@ -72,13 +72,13 @@
 
                 @if ($tutorialLessons->count() > 0)
                     @foreach ($tutorialLessons as $tutorialLesson)
-                        <div :key="tut_les_{{$tutorialLesson->id}}" id="input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}" class="flex justify-between items-center w-full">
-                            <input onfocus="pasteID(this)" name="input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}" type="text" value="{{$tutorialLesson->lesson_uniqid}}" class="dynamic-input">
+                        <div :key="tut_les_{{$tutorialLesson->id}}" id="input_{{$tutorialLesson->lesson_id}}" class="flex justify-between items-center w-full">
+                            <input onfocus="pasteID(this)" name="input_{{$tutorialLesson->lesson_id}}" type="text" value="{{$tutorialLesson->lesson_id}}" class="dynamic-input">
                             <div class="dynamic-input-ctrl">
-                                <div role="button" title="Add lesson below" onclick="appendInputBelow('input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}')" class="w-8 h-8 flex items-center justify-center bg-blue-400 text-white rounded-xl">
+                                <div role="button" title="Add lesson below" onclick="appendInputBelow('input_{{$tutorialLesson->lesson_id}}')" class="w-8 h-8 flex items-center justify-center bg-blue-400 text-white rounded-xl">
                                     +
                                 </div>
-                                <div role="button" title="Remove this lesson" onclick="removeInput('input_{{str_replace('.', '', $tutorialLesson->lesson_uniqid)}}')" class="w-8 h-8 flex items-center justify-center bg-slate-500 text-white rounded-xl">
+                                <div role="button" title="Remove this lesson" onclick="removeInput('input_{{$tutorialLesson->lesson_id}}')" class="w-8 h-8 flex items-center justify-center bg-slate-500 text-white rounded-xl">
                                     -
                                 </div>
                             </div>

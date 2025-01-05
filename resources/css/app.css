@@ -46,3 +46,7 @@ a.side-nav-link {
 .course-suspended {
     @apply text-red-400;
 }
+
+.my-courses-each {
+    @apply w-full lg:w-1/2 h-48 rounded-xl overflow-hidden;
+}

@@ -11,18 +11,22 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Course extends Model
 {
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'title',
         'user_id',
         'description',
         'content',
         'keywords',
-        'uniqid',
+        // 'uniqid',
     ];
 
     /**
@@ -53,6 +57,15 @@ class Course extends Model
     }
 
     /**
+     * Get the tutorials that belong to the course just for the image.
+     */
+    // public function getTutorialsForImage(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(Tutorial::class, 'course_tutorials', 'course_id', 'tutorial_uniqid')
+    //         ->withTimestamps();
+    // }
+
+    /**
      * The products that belong to the course.
      */
     public function product(): HasOne
@@ -68,6 +81,19 @@ class Course extends Model
         return Attribute::make(
             get: function () {
                 return $this->product->status;
+            }
+        );
+    }
+
+    /**
+     * Returns image link of the course
+     */
+    public function image(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                // return $this->getTutorialsForImage()->first()->image;
+                return $this->tutorials()->first();
             }
         );
     }

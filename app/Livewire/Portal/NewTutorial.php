@@ -5,7 +5,8 @@ namespace App\Livewire\Portal;
 use Livewire\Component;
 use App\Models\Tutorial;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\Validate; 
+use Livewire\Attributes\Validate;
+use Illuminate\Support\Str;
 
 class NewTutorial extends Component
 {
@@ -22,10 +23,11 @@ class NewTutorial extends Component
         $this->validate(); 
 
         $tutorial = Tutorial::create([
+            'id'                => Str::uuid(),
             'title'             => $this->title,
             'user_id'           => Auth::user()->id,
             'description'       => $this->description,
-            'uniqid'            => uniqid('', true)
+            // 'uniqid'            => uniqid('', true)
         ]);
 
         session()->flash('portal_status', 'Tutorial successfully created.');
